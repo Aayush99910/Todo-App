@@ -4,24 +4,34 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: "development",
     entry: {
-        index: './src/index.js',
-        print: './src/print.js',
+        bundle: './src/index.js',
     },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'To-do App',
+            template: './src/template.html'
         }),
     ],
     output: {
-      filename: '[name].bundle.js',
+      filename: '[name].js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
+    },
+    devtool: 'source-map',
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname, "dist")
+        },
+        port: 3000,
+        open: true,
+        hot: true,
+        compress: true
     },
     module: {
         rules: [
             {
                 test: /\.css$/i,
-                user: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,

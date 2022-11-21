@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div></div>
+
+    <header>
+        <p>Ora<span id="g">g</span>an<span id="i">i</span>se</p>
+        <div>
+            <button>Quick Add</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="sidebar-container">
+            <div>Inbox &nbsp;<i class="fa-solid fa-inbox"></i></div>
+            <div>Today &nbsp;<i class="fa-solid fa-calendar-week"></i></div>
+            <div>Upcoming Tasks &nbsp;<i class="fa-solid fa-arrow-right"></i></div>
+            <div>Projects &nbsp;<i class="fa-solid fa-list"></i></div>
+        </section>
+        <section class="main-body-container">
+            <div>
+                <p>There is currently no task added.</p>
+            </div>
+            <div>
+                <button id="add-task-btn"><i class="fa-solid fa-plus"></i>&nbsp;Add Task</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Copyright &#169;. Made by Aayush.</p>
+    </footer>
+
 </body>
 </html>

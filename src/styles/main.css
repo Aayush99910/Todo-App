@@ -1,8 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Roboto:wght@300&family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');
+
 :root {
-    --header-footer-color: #EC625F;
+    --header-footer-color: #0D4C92;
+    /* colors for header and footer */
+    /* BA94D1 */
+    /* 5DA7DB */
+    /* 3C4048 */
+    /* 0D4C92 */
     --sidebar-bg-color: #EFEFEF;
     --sidebar-hover-bg-color: #c2c0c0;
+}
+
+.green {
+    background-color: rgb(81, 167, 81);
+}
+
+.yellow {
+    background-color: rgb(210, 165, 94);
+}
+
+.red {
+    background-color: rgb(203, 86, 86);
 }
 
 body {
@@ -72,7 +90,7 @@ main {
     background-color: var(--sidebar-bg-color);
 }
 
-.sidebar-container > div {
+.sidebar-container-div {
     height: 40px;
     display: flex;
     justify-content: start;
@@ -84,7 +102,7 @@ main {
     transition: 0.20s;
 }
 
-.sidebar-container > div:hover {
+.sidebar-container-div:hover {
     cursor: pointer;
     background-color: var(--sidebar-hover-bg-color);
 }
@@ -92,7 +110,7 @@ main {
 .main-body-container {
     width: 80%;
     height: 100%;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -115,7 +133,8 @@ main {
     display: flex;
     height: 40px;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 8px;
     align-items: center;
 }
 
@@ -124,22 +143,28 @@ main {
     background-color: #c0c0c0;
 }
 
-.title {
-    font-family: "Roboto", sans-serif;
+.empty-todos {
+    font-family: "Comic Neue", sans-serif;
     font-size: 20px;
     font-weight: bold;
+} 
+
+.title {
+    font-family: 'MuseoModerno', cursive;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .dueDate {
-    font-family: "Roboto", sans-serif;
-    font-style: italic;
+    font-family: "Roboto Mono", sans-serif;
 }
 
 .priority {
     font-family: "Roboto", sans-serif;
 }
 
-#add-task-btn {
+#add-task-btn,
+#add-project-btn {
     background-color: #D9D9D9;
     border: none;
     font-family: "Roboto", sans-serif;
@@ -150,9 +175,23 @@ main {
     transition: 0.20s;
 }
 
-#add-task-btn:hover {
+#add-project-btn {
+    background-color: var(--sidebar-bg-color);
+}
+
+#add-task-btn:hover,
+#add-project-btn:hover {
     background-color: #b8b5b5;
     cursor: pointer;
+}
+
+.add-project-container {
+    display: flex; 
+    justify-content: center;
+}   
+
+.add-project-container:hover {
+    background-color: var(--sidebar-bg-color);
 }
 
 #modal {
@@ -225,6 +264,26 @@ form > p {
 #cancel:hover {
     cursor: pointer;
     background-color: rgba(184, 33, 33, 0.857);
+}
+
+.completed-delete-dropdown-container {
+    width: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.completed-btn,
+.dropdown-btn,
+.delete-btn {
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+.completed-btn:hover,
+.dropdown-btn:hover,
+.delete-btn:hover {
+    color: white;
 }
 
 footer {

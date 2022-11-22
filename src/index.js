@@ -1,4 +1,4 @@
-import { createTodo, saveTodo, renderTodos } from "./Todo.js";
+import { createTodo, saveTodo, renderTodos, renderTodayTodos } from "./Todo.js";
 import "./styles/main.css";
 
 const Flow = (() => {
@@ -6,6 +6,8 @@ const Flow = (() => {
     const addBtn = document.querySelector("#add-task-btn");
     const cancelBtn = document.querySelector("#cancel");
     const form = document.querySelector("form");
+    const inbox = document.querySelector("#inbox");
+    const today = document.querySelector("#today");
 
     addBtn.addEventListener("click", () => {
         modal.showModal();
@@ -29,6 +31,14 @@ const Flow = (() => {
         modal.close();
         const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value);
         saveTodo(todo);
+        renderTodos();
+    });
+
+    today.addEventListener("click", () => {
+        renderTodayTodos();
+    });
+
+    inbox.addEventListener("click", () => {
         renderTodos();
     });
 

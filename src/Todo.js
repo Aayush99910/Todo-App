@@ -1,14 +1,18 @@
-let todosArray;
-let todosArrayFromLocalStorage = JSON.parse(localStorage.getItem("myTodos"));
+let todosArray; // initailising the todosarray
+let todosArrayFromLocalStorage = JSON.parse(localStorage.getItem("myTodos")); // getting todos from the localStorage
 
+// if todos found in the localStorage we use that else 
+// make a new empty array
 if (todosArrayFromLocalStorage) {
     todosArray = todosArrayFromLocalStorage;
 }else {
     todosArray = [];
 }
 
-
+// DOM element
 const body = document.querySelector(".main-body-todos");
+
+// factory function which makes todo 
 export const createTodo = (title, dueDate, priority) => {
     return {
         title,
@@ -17,18 +21,22 @@ export const createTodo = (title, dueDate, priority) => {
     }
 }
 
+// this function pushes the object todo in the array 
+// and then saves the todoArray in the localStorage 
 export const saveTodo = (todo) => {
     todosArray.push(todo);
     localStorage.setItem("myTodos", JSON.stringify(todosArray));
 }
 
-function render(i) {
+
+// renders each todo
+function render(eachtodo) {
     const div = document.createElement("div");
     div.classList.add("todo-container");
 
     const title = document.createElement("p");
     title.classList.add("title");
-    title.textContent = todosArray[i].title;
+    title.textContent = eachtodo.title;
 
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("completed-delete-dropdown-container");
@@ -47,11 +55,11 @@ function render(i) {
     
     buttonDiv.append(completedBtn, deleteBtn);
 
-    if (todosArray[i].priority.toLowerCase() == "low") {
+    if (eachtodo.priority.toLowerCase() == "low") {
         div.classList.add("green");
-    } else if (todosArray[i].priority.toLowerCase() == "medium") {
+    } else if (eachtodo.priority.toLowerCase() == "medium") {
         div.classList.add("yellow");
-    } else if (todosArray[i].priority.toLowerCase() == "high") {
+    } else if (eachtodo.priority.toLowerCase() == "high") {
         div.classList.add("red");
     }
 
@@ -59,6 +67,10 @@ function render(i) {
     body.append(div);
 }
 
+// renderTodo takes a argument
+// renders according to the argument
+// if choice is all renders all the todos
+// if choice is today renders all the todos due today
 function _renderTodos(choice) {
     body.innerHTML = " ";
     if (todosArray.length === 0) {
@@ -73,22 +85,24 @@ function _renderTodos(choice) {
     }
 
     if (choice == "all") {
-        for(let i = 0; i < todosArray.length; i++){
-            render(i);
-        }
-    } else if (choice == "today") {
+        todosArray.forEach(function(eachtodo) {
+            render(eachtodo);
+        })
+    }
+    else if (choice == "today") {
         const year = new Date().getFullYear();
         const month = new Date().getMonth() + 1;
         const day = new Date().getDate(); 
         const todayDay = `${year}-${month}-${day}`;
 
-        for(let i = 0; i < todosArray.length; i++){
-            if (todayDay == todosArray[i].dueDate) {
-                render(i);
+        todosArray.forEach(function(eachtodo) {
+            if (todayDay == eachtodo.dueDate) {
+                render(eachtodo);
             }
-        }
+        })
     }
 }
+
 
 export const renderTodos = () => {
     _renderTodos("all");

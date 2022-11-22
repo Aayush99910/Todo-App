@@ -95,18 +95,48 @@ main {
     padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 15px;
+    overflow-y: scroll;
 }
 
-.main-body-container > div {
+.add-btn-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
-.main-body-container > div > p {
-    font-family: "Comic Neue", sans-serif;
+.main-body-todos {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    display: flex;
+}
+
+.todo-container {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.todo-container:hover {
+    cursor: pointer;
+    background-color: #c0c0c0;
+}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
     font-weight: bold;
-    font-size: 25px;
+}
+
+.dueDate {
+    font-family: "Roboto", sans-serif;
+    font-style: italic;
+}
+
+.priority {
+    font-family: "Roboto", sans-serif;
 }
 
 #add-task-btn {
@@ -123,6 +153,78 @@ main {
 #add-task-btn:hover {
     background-color: #b8b5b5;
     cursor: pointer;
+}
+
+#modal {
+    margin: auto;
+    padding: 1em;
+    transition: 015s;
+    border: none;
+    border-radius: 6px;
+}
+
+#modal::backdrop {
+    background: rgb(0 0 0);
+    opacity: 0.3;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form > p {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.input-label-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label-container > input,
+.input-label-container > select{
+    height: 30px;
+}
+
+.input-label-container > label {
+    font-family: "Salsa", cursive;
+    font-size: 18px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+#add, 
+#cancel {
+    padding: 15px 5px;
+    border: none;
+    background-color: deepskyblue;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+#cancel {
+    background-color: rgb(228, 16, 16);
+}
+
+#add:hover {
+    cursor: pointer;
+    background-color: rgba(28, 191, 240, 0.524);
+}
+
+#cancel:hover {
+    cursor: pointer;
+    background-color: rgba(184, 33, 33, 0.857);
 }
 
 footer {

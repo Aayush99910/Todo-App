@@ -28,11 +28,30 @@ export const saveTodo = (todo) => {
     localStorage.setItem("myTodos", JSON.stringify(todosArray));
 }
 
+// adds more functionality 
+function moreFunctionality () {
+    const todoContainer = document.querySelectorAll(".todo-container");
+    todoContainer.forEach(function (eachtodoContainer) {
+        eachtodoContainer.addEventListener('click', () => {
+            const todoContainerBody = eachtodoContainer.querySelector(".todo-container-body");
+            const todoContainerHeading = eachtodoContainer.querySelector(".todo-container-heading");
+            todoContainerBody.classList.toggle("show-todo-container-body");
+            
+            const buttonContainer = todoContainerHeading.querySelector(".completed-delete-dropdown-container");
+            const dropDownBtn = buttonContainer.querySelector(".dropdown-btn");
+            dropDownBtn.classList.toggle("rotate");
+        });
+    });
+}
+
 
 // renders each todo
 function render(eachtodo) {
-    const div = document.createElement("div");
-    div.classList.add("todo-container");
+    const todoContainer = document.createElement("div");
+    todoContainer.classList.add("todo-container");
+
+    const todoContainerHeading = document.createElement("div");
+    todoContainerHeading.classList.add("todo-container-heading");
 
     const title = document.createElement("p");
     title.classList.add("title");
@@ -49,22 +68,32 @@ function render(eachtodo) {
     deleteBtn.classList.add("delete-btn");
     deleteBtn.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
     
-    // const dropDown = document.createElement("button");
-    // dropDown.classList.add("dropdown-btn");
-    // dropDown.innerHTML = `<i class="fa-solid fa-angle-down"></i>`;
+    const dropDown = document.createElement("button");
+    dropDown.classList.add("dropdown-btn");
+    dropDown.innerHTML = `<i class="fa-solid fa-angle-down"></i>`;
     
-    buttonDiv.append(completedBtn, deleteBtn);
+    buttonDiv.append(completedBtn, deleteBtn, dropDown);
+
+    const todoContainerBody = document.createElement("div");
+    todoContainerBody.classList.add("todo-container-body");
+    todoContainerBody.innerHTML = `
+        <p class="todo-body-title">Title: ${eachtodo.title}</p>
+        <p class="todo-body-priority">Priority: ${eachtodo.priority}</p>
+        <p class="todo-body-dueDate">DueDate: ${eachtodo.dueDate}</p>
+        <p class="todo-body-description">Description: Go to temple at 5 pm.</p>
+    `;
 
     if (eachtodo.priority.toLowerCase() == "low") {
-        div.classList.add("green");
+        todoContainerHeading.classList.add("green");
     } else if (eachtodo.priority.toLowerCase() == "medium") {
-        div.classList.add("yellow");
+        todoContainerHeading.classList.add("yellow");
     } else if (eachtodo.priority.toLowerCase() == "high") {
-        div.classList.add("red");
+        todoContainerHeading.classList.add("red");
     }
 
-    div.append(title, buttonDiv);
-    body.append(div);
+    todoContainerHeading.append(title, buttonDiv);
+    todoContainer.append(todoContainerHeading, todoContainerBody);
+    body.append(todoContainer);
 }
 
 // renderTodo takes a argument
@@ -72,6 +101,7 @@ function render(eachtodo) {
 // if choice is all renders all the todos
 // if choice is today renders all the todos due today
 function _renderTodos(choice) {
+    const bodyHeading = document.getElementById("heading");
     body.innerHTML = " ";
     if (todosArray.length === 0) {
         const div = document.createElement("div");
@@ -84,22 +114,39 @@ function _renderTodos(choice) {
         body.append(div);
     }
 
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth() + 1;
+    const currentday= new Date().getDate(); 
+
     if (choice == "all") {
+        bodyHeading.textContent = "Inbox";
         todosArray.forEach(function(eachtodo) {
             render(eachtodo);
         })
+        moreFunctionality();
     }
     else if (choice == "today") {
-        const year = new Date().getFullYear();
-        const month = new Date().getMonth() + 1;
-        const day = new Date().getDate(); 
-        const todayDay = `${year}-${month}-${day}`;
+        bodyHeading.textContent = "Today";
+        const todayDay = `${currentYear}-${currentMonth}-${currentday}`;
 
         todosArray.forEach(function(eachtodo) {
             if (todayDay == eachtodo.dueDate) {
                 render(eachtodo);
             }
         })
+        moreFunctionality();
+    }
+    else if (choice == "upcoming") {
+        bodyHeading.textContent = "Upcoming Tasks";
+
+        todosArray.forEach(function(eachtodo) {
+            let fulldate = eachtodo.dueDate.split("-");
+            const [year, month, day] = fulldate;
+            if (year > currentYear || month > currentMonth || day > currentday) {
+                render(eachtodo);
+            }
+        });
+        moreFunctionality();
     }
 }
 
@@ -111,3 +158,7 @@ export const renderTodos = () => {
 export function renderTodayTodos() {
     _renderTodos("today");
 }
+
+export const renderUpcomingTodos = () => {
+    _renderTodos("upcoming");
+} 

@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');
 
 :root {
-    --header-footer-color: #0D4C92;
+    --header-footer-color: #3C4048;
     /* colors for header and footer */
     /* BA94D1 */
     /* 5DA7DB */
@@ -122,23 +122,32 @@ main {
     justify-content: flex-end;
 }
 
+.body-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+}
+
 .main-body-todos {
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
     display: flex;
 }
 
 .todo-container {
+    width: 100%;}
+
+.todo-container-heading {
     display: flex;
     height: 40px;
     width: 100%;
     justify-content: space-between;
     padding: 8px;
     align-items: center;
+    border-radius: 3px;
 }
 
-.todo-container:hover {
+.todo-container-heading:hover {
     cursor: pointer;
     background-color: #c0c0c0;
 }
@@ -267,7 +276,8 @@ form > p {
 }
 
 .completed-delete-dropdown-container {
-    width: 5%;
+    width: 8%;
+    min-width: 50px;
     display: flex;
     justify-content: space-between;
 }
@@ -280,11 +290,39 @@ form > p {
     background: none;
 }
 
+.delete-btn {
+    transition: 0.5s ease-out;
+}
+
 .completed-btn:hover,
 .dropdown-btn:hover,
 .delete-btn:hover {
     color: white;
 }
+
+.todo-container-body {
+    height: 0;
+    overflow: hidden;
+    background-color: rgb(245, 245, 245);
+    transition: 0.20s ease-in-out;
+}
+
+.show-todo-container-body {
+    height: 100px;
+    padding: 1rem;
+}
+
+.todo-body-title,
+.todo-body-priority,
+.todo-body-dueDate,
+.todo-body-description {
+    font-family: "Roboto", sans-serif;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
 
 footer {
     display: flex;

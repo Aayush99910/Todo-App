@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');
 
 :root {
     --header-footer-color: #3C4048;
@@ -208,6 +208,7 @@ main {
     padding: 1em;
     transition: 015s;
     border: none;
+    width: 300px;
     border-radius: 6px;
 }
 
@@ -219,7 +220,7 @@ main {
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 }
 
 form > p {
@@ -236,43 +237,58 @@ form > p {
 
 .input-label-container > input,
 .input-label-container > select{
-    height: 30px;
+    height: 35px;
+    background-color: #D9D9D9;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .input-label-container > label {
-    font-family: "Salsa", cursive;
-    font-size: 18px;
+    font-family: "Jaldi", sans-serif;
+    font-size: 20px;
+}
+
+textarea {
+    height: 80px;
+    padding: 5px;
 }
 
 .button-container {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
     gap: 4px;
+}
+
+input, select, textarea {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
 }
 
 #add, 
 #cancel {
-    padding: 15px 5px;
+    padding: 7px 15px;
     border: none;
-    background-color: deepskyblue;
+    background-color: #78C677;
     border-radius: 5px;
-    color: rgb(0, 0, 0);
+    color: white;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
 }
 
 #cancel {
-    background-color: rgb(228, 16, 16);
+    background-color: #D66666;
 }
 
 #add:hover {
     cursor: pointer;
-    background-color: rgba(28, 191, 240, 0.524);
+    background-color: #1eb41c;
 }
 
 #cancel:hover {
     cursor: pointer;
-    background-color: rgba(184, 33, 33, 0.857);
+    background-color: rgba(172, 26, 26, 0.857);
 }
 
 .completed-delete-dropdown-container {
@@ -304,7 +320,7 @@ form > p {
     height: 0;
     overflow: hidden;
     background-color: rgb(245, 245, 245);
-    transition: 0.20s ease-in-out;
+    transition: 0.20s ease-in;
 }
 
 .show-todo-container-body {

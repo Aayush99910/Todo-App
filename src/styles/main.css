@@ -209,6 +209,7 @@ main {
     transition: 015s;
     border: none;
     width: 300px;
+    background-color: #3C4048;
     border-radius: 6px;
 }
 
@@ -228,6 +229,7 @@ form > p {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    color: white;
 }
 
 .input-label-container {
@@ -238,7 +240,6 @@ form > p {
 .input-label-container > input,
 .input-label-container > select{
     height: 35px;
-    background-color: #D9D9D9;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -248,6 +249,7 @@ form > p {
 .input-label-container > label {
     font-family: "Jaldi", sans-serif;
     font-size: 20px;
+    color: white;
 }
 
 textarea {
@@ -306,10 +308,6 @@ input, select, textarea {
     background: none;
 }
 
-.delete-btn {
-    transition: 0.5s ease-out;
-}
-
 .completed-btn:hover,
 .dropdown-btn:hover,
 .delete-btn:hover {
@@ -325,14 +323,20 @@ input, select, textarea {
 
 .show-todo-container-body {
     height: 100px;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
-.todo-body-title,
+.priority-dueDate-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0px;
+}
+
 .todo-body-priority,
 .todo-body-dueDate,
 .todo-body-description {
     font-family: "Roboto", sans-serif;
+    font-size: 16.5px;
 }
 
 .rotate {

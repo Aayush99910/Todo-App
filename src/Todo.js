@@ -1,3 +1,5 @@
+/*eslint-disable */
+
 let todosArray; // initailising the todosarray
 const todosArrayFromLocalStorage = JSON.parse(localStorage.getItem('myTodos')); // getting todos from the localStorage
 
@@ -13,27 +15,35 @@ if (todosArrayFromLocalStorage) {
 const body = document.querySelector('.main-body-todos');
 
 // factory function which makes todo
-export const createTodo = (title, dueDate, priority, description) => ({
+export const createTodo = (title, dueDate, priority, description, completed) => ({
   title,
   dueDate,
   priority,
   description,
+  completed
 });
 
 // this function pushes the object todo in the array
 // and then saves the todoArray in the localStorage
 export const saveTodo = (todo) => {
   todosArray.push(todo);
-  localStorage.setItem('myTodos', JSON.stringify(todosArray));
+  saveTodoToLocalStorage();
 };
 
 // adds dropDownFunctionality functionality
-function dropDownFunctionality() {
+export function dropDownFunctionality() {
+  if (todosArray.length === 0) {
+    return;
+  }
   const todoContainer = document.querySelectorAll('.todo-container');
   todoContainer.forEach((eachtodoContainer) => {
-    eachtodoContainer.addEventListener('click', () => {
-      const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
-      const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
+    const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
+    const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
+    todoContainerHeading.addEventListener('click', (e) => {
+      if (e.target.classList[0] === 'fa-solid') {
+        return; // skips if the the user clicks on any other button
+      }
+
       todoContainerBody.classList.toggle('show-todo-container-body');
 
       const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
@@ -51,9 +61,19 @@ function render(eachtodo) {
   const todoContainerHeading = document.createElement('div');
   todoContainerHeading.classList.add('todo-container-heading');
 
-  const title = document.createElement('p');
-  title.classList.add('title');
-  title.textContent = eachtodo.title;
+  let title;
+  let s;
+  if (eachtodo.completed === true) {
+    title = document.createElement('p');
+    title.classList.add('title');
+    s = document.createElement("s");
+    s.textContent = eachtodo.title;
+    title.append(s);
+  }else {
+    title = document.createElement('p');
+    title.classList.add('title');
+    title.textContent = eachtodo.title;
+  }
 
   const buttonDiv = document.createElement('div');
   buttonDiv.classList.add('completed-delete-dropdown-container');
@@ -74,12 +94,23 @@ function render(eachtodo) {
 
   const todoContainerBody = document.createElement('div');
   todoContainerBody.classList.add('todo-container-body');
-  todoContainerBody.innerHTML = `
-        <p class="todo-body-title">Title: ${eachtodo.title}</p>
+  if (eachtodo.completed === true) {
+    todoContainerBody.innerHTML = `
+      <div class="priority-dueDate-container">
+        <p class="todo-body-priority"><s>Priority: ${eachtodo.priority}</s></p>
+        <p class="todo-body-dueDate"><s>DueDate: ${eachtodo.dueDate}</s></p>
+      </div>
+        <p class="todo-body-description"><s>Description: ${eachtodo.description}</s></p>
+    `;
+  }else {
+    todoContainerBody.innerHTML = `
+      <div class="priority-dueDate-container">
         <p class="todo-body-priority">Priority: ${eachtodo.priority}</p>
         <p class="todo-body-dueDate">DueDate: ${eachtodo.dueDate}</p>
+      </div>
         <p class="todo-body-description">Description: ${eachtodo.description}</p>
     `;
+  }
   /*eslint-disable */
   if (eachtodo.priority.toLowerCase() == 'low') {
     todoContainerHeading.classList.add('green');
@@ -123,6 +154,7 @@ function _renderTodos(choice) {
       render(eachtodo);
     });
     dropDownFunctionality();
+    strikethrough();
   } else if (choice == 'today') {
     bodyHeading.textContent = 'Today';
     const todayDay = `${currentYear}-${currentMonth}-${currentday}`;
@@ -133,6 +165,7 @@ function _renderTodos(choice) {
       }
     });
     dropDownFunctionality();
+    strikethrough();
   } else if (choice == 'upcoming') {
     bodyHeading.textContent = 'Upcoming Tasks';
 
@@ -144,6 +177,7 @@ function _renderTodos(choice) {
       }
     });
     dropDownFunctionality();
+    strikethrough();
   }
 }
 
@@ -158,3 +192,44 @@ export function renderTodayTodos() {
 export const renderUpcomingTodos = () => {
   _renderTodos('upcoming');
 };
+
+
+function strikethrough() {
+  const completedBtn = document.querySelectorAll('.completed-btn');
+  completedBtn.forEach((eachBtn) => {
+    eachBtn.addEventListener('click', () => {
+      const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+      const todoContainerHeading = eachBtn.parentElement.parentElement;
+      const todoPara = todoContainerHeading.querySelector("p");
+      const todoTitle = todoPara.firstChild;
+      todosArray.forEach(eachtodo => {
+        if (eachtodo.title === todoTitle.textContent && eachtodo.completed === false) {
+          updateTodo(eachtodo.title);
+        }
+      })
+      const allPara = todoContainer.querySelectorAll('p');
+      allPara.forEach((eachPara) => {
+        const strikeThroughElement = document.createElement('s');
+        strikeThroughElement.textContent = eachPara.textContent;
+        /*eslint-disable */
+        eachPara.innerHTML = ' '; 
+        eachPara.append(strikeThroughElement);
+      });
+    });
+  });
+}
+
+
+function updateTodo (title) {
+  todosArray.forEach((eachtodo) => {
+    if (eachtodo.title === title) {
+      eachtodo.completed = true;
+      saveTodoToLocalStorage();
+    }
+  });
+};
+
+
+function saveTodoToLocalStorage() {
+  localStorage.setItem('myTodos', JSON.stringify(todosArray));
+}

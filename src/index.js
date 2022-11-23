@@ -1,7 +1,8 @@
 /*eslint-disable */
 import {
-  createTodo, saveTodo, renderTodos, renderTodayTodos, renderUpcomingTodos,
+  createTodo, saveTodo, renderTodos, renderTodayTodos, renderUpcomingTodos, dropDownFunctionality
 } from './Todo.js';
+import strikethrough from './button.js';
 import './styles/main.css';
 
 // DOM elements
@@ -45,7 +46,7 @@ form.addEventListener('submit', (e) => {
   // then calls saveTodo function which saves the todo
   // in the localStorage lastly it renders them
   modal.close();
-  const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
+  const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
   saveTodo(todo);
   renderTodos();
 });
@@ -69,18 +70,4 @@ upcomingTask.addEventListener('click', () => {
 // when the user logs in the pade we render the todos
 renderTodos();
 
-// adds dropDownFunctionality functionality
-function dropDownFunctionality() {
-  const todoContainer = document.querySelectorAll('.todo-container');
-  todoContainer.forEach((eachtodoContainer) => {
-    eachtodoContainer.addEventListener('click', () => {
-      const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
-      const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
-      todoContainerBody.classList.toggle('show-todo-container-body');
-
-      const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
-      const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
-      dropDownBtn.classList.toggle('rotate');
-    });
-  });
-}
+strikethrough();

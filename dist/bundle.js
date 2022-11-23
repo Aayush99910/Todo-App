@@ -522,6 +522,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createTodo": () => (/* binding */ createTodo),
 /* harmony export */   "renderTodayTodos": () => (/* binding */ renderTodayTodos),
 /* harmony export */   "renderTodos": () => (/* binding */ renderTodos),
+/* harmony export */   "renderUpcomingTodos": () => (/* binding */ renderUpcomingTodos),
 /* harmony export */   "saveTodo": () => (/* binding */ saveTodo)
 /* harmony export */ });
 let todosArray; // initailising the todosarray
@@ -593,6 +594,10 @@ function render(eachtodo) {
     body.append(div);
 }
 
+// renderTodo takes a argument
+// renders according to the argument
+// if choice is all renders all the todos
+// if choice is today renders all the todos due today
 function _renderTodos(choice) {
     body.innerHTML = " ";
     if (todosArray.length === 0) {
@@ -623,7 +628,21 @@ function _renderTodos(choice) {
             }
         })
     }
+    else if (choice == "upcoming") {
+        const currentYear = new Date().getFullYear();
+        const currentMonth = new Date().getMonth() + 1;
+        const currentday= new Date().getDate(); 
+
+        todosArray.forEach(function(eachtodo) {
+            let fulldate = eachtodo.dueDate.split("-");
+            const [year, month, day] = fulldate;
+            if (year > currentYear || month > currentMonth || day > currentday) {
+                render(eachtodo);
+            }
+        });
+    }
 }
+
 
 const renderTodos = () => {
     _renderTodos("all");
@@ -632,6 +651,10 @@ const renderTodos = () => {
 function renderTodayTodos() {
     _renderTodos("today");
 }
+
+const renderUpcomingTodos = () => {
+    _renderTodos("upcoming");
+} 
 
 /***/ })
 
@@ -721,67 +744,72 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// flow of the whole page
-const Flow = (() => {
-    // DOM elements
-    const modal = document.querySelector("#modal");
-    const addBtn = document.querySelector("#add-task-btn");
-    const cancelBtn = document.querySelector("#cancel");
-    const form = document.querySelector("form");
-    const inbox = document.querySelector("#inbox");
-    const today = document.querySelector("#today");
+
+// DOM elements
+const modal = document.querySelector("#modal");
+const addBtn = document.querySelector("#add-task-btn");
+const cancelBtn = document.querySelector("#cancel");
+const form = document.querySelector("form");
+const inbox = document.querySelector("#inbox");
+const today = document.querySelector("#today");
+const upcomingTask = document.querySelector("#upcoming");
 
 
-    // event listener for add task btn
-    addBtn.addEventListener("click", () => {
-        modal.showModal();
-    });
+// event listener for add task btn
+addBtn.addEventListener("click", () => {
+    modal.showModal();
+});
 
 
-    // event listener for cancel btn
-    cancelBtn.addEventListener("click", () => {
-        modal.close();
-    });
+// event listener for cancel btn
+cancelBtn.addEventListener("click", () => {
+    modal.close();
+});
 
 
-    // event listener for form
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const titleInput = document.querySelector("#title");
-        const dueDateInput = document.querySelector("#dueDate");
-        const priorityInput = document.querySelector("#priority");
+// event listener for form
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const titleInput = document.querySelector("#title");
+    const dueDateInput = document.querySelector("#dueDate");
+    const priorityInput = document.querySelector("#priority");
         
-        // if empty form is submitted user is alerted about it
-        if (titleInput.value === "" || dueDateInput.value === "" || priorityInput.value ===  "") {
-            alert("Please fill the form.");
-            return; // skips the whole other code after this
-        }
+    // if empty form is submitted user is alerted about it
+    if (titleInput.value === "" || dueDateInput.value === "" || priorityInput.value ===  "") {
+        alert("Please fill the form.");
+        return; // skips the whole other code after this
+    }
 
-        // when submitted closes the modal and creates the todo by
-        // calling the createTodo factory function which is 
-        // imported from Todo.js
-        // then calls saveTodo function which saves the todo
-        // in the localStorage lastly it renders them
-        modal.close();
-        const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleInput.value, dueDateInput.value, priorityInput.value);
-        (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.saveTodo)(todo);
-        (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
-    });
-
-    // when today is clicked on the sidebar renderTodayTodos
-    // is called which renders all the todo duedated today
-    today.addEventListener("click", () => {
-        (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodayTodos)();
-    });
-
-    // renders all the todos
-    inbox.addEventListener("click", () => {
-        (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
-    });
-
-    // when the user logs in the pade we render the todos
+    // when submitted closes the modal and creates the todo by
+    // calling the createTodo factory function which is 
+    // imported from Todo.js
+    // then calls saveTodo function which saves the todo
+    // in the localStorage lastly it renders them
+    modal.close();
+    const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleInput.value, dueDateInput.value, priorityInput.value);
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.saveTodo)(todo);
     (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
-})();
+});
+
+// when today is clicked on the sidebar renderTodayTodos
+// is called which renders all the todo duedated today
+today.addEventListener("click", () => {
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodayTodos)()
+});
+
+// renders all the todos
+inbox.addEventListener("click", () => {
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)()
+});
+
+// renders all the upcoming todos
+upcomingTask.addEventListener("click", () => {
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderUpcomingTodos)()
+});
+
+// when the user logs in the pade we render the todos
+(0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
+
 })();
 
 /******/ })()

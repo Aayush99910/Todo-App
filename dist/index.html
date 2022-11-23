@@ -12,7 +12,7 @@
     <header>
         <p>Ora<span id="g">g</span>an<span id="i">i</span>se</p>
         <div>
-            <button>Quick Add</button>
+            <button>Light</button>
         </div>
     </header>
 
@@ -35,21 +35,26 @@
 
                     <div class="input-label-container ">
                         <label for="title">Title</label>
-                        <input type="text" id="title" placholder="Title of your todos">
+                        <input type="text" id="title" placeholder="Title of your todos" required>
                     </div>
 
                     <div class="input-label-container ">
                         <label for="dueDate">Duedate</label>
-                        <input type="date" id="dueDate">
+                        <input type="date" id="dueDate" required>
                     </div>
                     
                     <div class="input-label-container ">
                         <label for="priority">Priority</label>
-                        <select name="priority" id="priority">
+                        <select name="priority" id="priority" required>
                             <option value="Low">Low</option>
                             <option value="Medium">Medium</option>
                             <option value="High">High</option>
                         </select>
+                    </div>
+
+                    <div class="input-label-container">
+                        <label for="description">Description</label>
+                        <textarea required id="description" placeholder="Some short description"></textarea>
                     </div>
                     
                     <div class="button-container">

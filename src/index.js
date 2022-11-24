@@ -1,8 +1,12 @@
 /*eslint-disable */
+// importing all the modules from other files
 import {
-  createTodo, saveTodo, renderTodos, renderTodayTodos, renderUpcomingTodos, dropDownFunctionality
+  createTodo, 
+  saveTodo, 
+  renderTodos, 
+  renderTodayTodos, 
+  renderUpcomingTodos
 } from './Todo.js';
-import strikethrough from './button.js';
 import './styles/main.css';
 
 // DOM elements
@@ -17,7 +21,6 @@ const upcomingTask = document.querySelector('#upcoming');
 // event listener for add task btn
 addBtn.addEventListener('click', () => {
   modal.showModal();
-  dropDownFunctionality();
 });
 
 // event listener for cancel btn
@@ -27,7 +30,8 @@ cancelBtn.addEventListener('click', () => {
 
 // event listener for form
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  e.preventDefault(); // preventing the default 
+  // getting all the input values from the form
   const titleInput = document.querySelector('#title');
   const dueDateInput = document.querySelector('#dueDate');
   const priorityInput = document.querySelector('#priority');
@@ -52,9 +56,9 @@ form.addEventListener('submit', (e) => {
 });
 
 // when today is clicked on the sidebar renderTodayTodos
-// is called which renders all the todo duedated today
+// is called (which renders all the todo duedated today)
 today.addEventListener('click', () => {
-  renderTodayTodos();
+  renderTodayTodos(); // renders all the todos duedates today
 });
 
 // renders all the todos
@@ -69,5 +73,3 @@ upcomingTask.addEventListener('click', () => {
 
 // when the user logs in the pade we render the todos
 renderTodos();
-
-strikethrough();

@@ -520,7 +520,6 @@ module.exports = styleTagTransform;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createTodo": () => (/* binding */ createTodo),
-/* harmony export */   "dropDownFunctionality": () => (/* binding */ dropDownFunctionality),
 /* harmony export */   "renderTodayTodos": () => (/* binding */ renderTodayTodos),
 /* harmony export */   "renderTodos": () => (/* binding */ renderTodos),
 /* harmony export */   "renderUpcomingTodos": () => (/* binding */ renderUpcomingTodos),
@@ -529,7 +528,10 @@ __webpack_require__.r(__webpack_exports__);
 /*eslint-disable */
 
 let todosArray; // initailising the todosarray
-const todosArrayFromLocalStorage = JSON.parse(localStorage.getItem('myTodos')); // getting todos from the localStorage
+
+// getting todos from localStorage
+const todosArrayFromLocalStorage = JSON.parse(localStorage.getItem('myTodos')); 
+
 
 // if todos found in the localStorage we use that else
 // make a new empty array
@@ -555,34 +557,23 @@ const createTodo = (title, dueDate, priority, description, completed) => ({
 // and then saves the todoArray in the localStorage
 const saveTodo = (todo) => {
   todosArray.push(todo);
-  saveTodoToLocalStorage();
+  _saveTodoToLocalStorage();
 };
 
-// adds dropDownFunctionality functionality
-function dropDownFunctionality() {
-  if (todosArray.length === 0) {
-    return;
-  }
-  const todoContainer = document.querySelectorAll('.todo-container');
-  todoContainer.forEach((eachtodoContainer) => {
-    const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
-    const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
-    todoContainerHeading.addEventListener('click', (e) => {
-      if (e.target.classList[0] === 'fa-solid') {
-        return; // skips if the the user clicks on any other button
-      }
+const renderTodos = () => {
+  _renderTodos('all');
+};
 
-      todoContainerBody.classList.toggle('show-todo-container-body');
-
-      const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
-      const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
-      dropDownBtn.classList.toggle('rotate');
-    });
-  });
+function renderTodayTodos() {
+  _renderTodos('today');
 }
 
+const renderUpcomingTodos = () => {
+  _renderTodos('upcoming');
+};
+
 // renders each todo
-function render(eachtodo) {
+function _render(eachtodo) {
   const todoContainer = document.createElement('div');
   todoContainer.classList.add('todo-container');
 
@@ -679,21 +670,17 @@ function _renderTodos(choice) {
   if (choice == 'all') {
     bodyHeading.textContent = 'Inbox';
     todosArray.forEach((eachtodo) => {
-      render(eachtodo);
+      _render(eachtodo);
     });
-    dropDownFunctionality();
-    strikethrough();
   } else if (choice == 'today') {
     bodyHeading.textContent = 'Today';
     const todayDay = `${currentYear}-${currentMonth}-${currentday}`;
 
     todosArray.forEach((eachtodo) => {
       if (todayDay == eachtodo.dueDate) {
-        render(eachtodo);
+        _render(eachtodo);
       }
     });
-    dropDownFunctionality();
-    strikethrough();
   } else if (choice == 'upcoming') {
     bodyHeading.textContent = 'Upcoming Tasks';
 
@@ -701,110 +688,144 @@ function _renderTodos(choice) {
       const fulldate = eachtodo.dueDate.split('-');
       const [year, month, day] = fulldate;
       if (year > currentYear || month > currentMonth || day > currentday) {
-        render(eachtodo);
+        _render(eachtodo);
       }
     });
-    dropDownFunctionality();
-    strikethrough();
   }
+  _addFunctionality();
 }
 
-const renderTodos = () => {
-  _renderTodos('all');
-};
-
-function renderTodayTodos() {
-  _renderTodos('today');
+// strikethrough function which puts a line on the text 
+// whenever a user clicks on the complete function 
+// it also removes the line when user clicks on it again
+// here this function also calls updateTodo to update the 
+// completed property to true or false
+function _strikethrough(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+    todosArray.forEach(eachtodo => {
+      if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
+        _updateTodo(eachtodo.title, false);
+        const allPara = todoContainer.querySelectorAll('p');
+        allPara.forEach((eachPara) => {
+            const strikeThroughElement = document.createElement('s');
+            strikeThroughElement.textContent = eachPara.textContent;
+            /*eslint-disable */
+            eachPara.innerHTML = ''; 
+            eachPara.append(strikeThroughElement);
+        });
+      }
+      else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
+        _updateTodo(eachtodo.title, true);
+        const allPara = todoContainer.querySelectorAll("p");
+        allPara.forEach((eachPara) => {
+          const eachStrikePara = eachPara.querySelector("s");
+          let text = eachStrikePara.textContent;
+          eachPara.innerHTML = '';
+          eachPara.textContent = text;
+        });
+      }
+    })
+  });
 }
 
-const renderUpcomingTodos = () => {
-  _renderTodos('upcoming');
-};
 
-
-function strikethrough() {
-  const completedBtn = document.querySelectorAll('.completed-btn');
-  completedBtn.forEach((eachBtn) => {
-    eachBtn.addEventListener('click', () => {
+// deleted a todo when user clicks on the deleteBtn
+// it asks user for confirmation if they say yes 
+// it proceeds to delete that particular obj from the array
+// and at last it renders the new array
+function _deleteTodo(eachBtn) {
+  let newTodosArray;
+  eachBtn.addEventListener('click', () => {
+    const confirmation = confirm("Are you sure you want to delete this todo?");
+    if (confirmation === true) {
       const todoContainer = eachBtn.parentElement.parentElement.parentElement;
       const todoContainerHeading = eachBtn.parentElement.parentElement;
       const todoPara = todoContainerHeading.querySelector("p");
       const todoTitle = todoPara.firstChild;
-      todosArray.forEach(eachtodo => {
-        if (eachtodo.title === todoTitle.textContent && eachtodo.completed === false) {
-          updateTodo(eachtodo.title, false);
+      newTodosArray = todosArray.filter(eachtodo => {
+        if (eachtodo.title === todoTitle.textContent) {
+          return false;
+        }else {
+          return true;
         }
-        else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
-          updateTodo(eachtodo.title, true);
-        }
-      })
-      const allPara = todoContainer.querySelectorAll('p');
-      allPara.forEach((eachPara) => {
-        const strikeThroughElement = document.createElement('s');
-        strikeThroughElement.textContent = eachPara.textContent;
-        /*eslint-disable */
-        eachPara.innerHTML = ' '; 
-        eachPara.append(strikeThroughElement);
       });
-    });
-  });
+      todosArray = newTodosArray;
+      _saveTodoToLocalStorage();
+      renderTodos();
+    }
+    else {
+      return;
+    }
+  })
 }
 
-
-function updateTodo (title, completed) {
+// updatesTodo to either completed true or conpleted false
+// and calls saveTodoToLocalStorage to update the new array
+function _updateTodo (title, completed) {
   todosArray.forEach((eachtodo) => {
     if (eachtodo.title === title && completed === false) {
       eachtodo.completed = true;
-      saveTodoToLocalStorage();
+      _saveTodoToLocalStorage();
     } else if (eachtodo.title === title && completed === true) {
       eachtodo.completed = false;
-      saveTodoToLocalStorage();
+      _saveTodoToLocalStorage();
     }
   });
 };
 
-
-function saveTodoToLocalStorage() {
+// saves the todoArray in the localStorage
+function _saveTodoToLocalStorage() {
   localStorage.setItem('myTodos', JSON.stringify(todosArray));
 }
 
-/***/ }),
+// dropDownFunctionality
+// when this function is invoked a new class is added to todo
+// body container which makes it visible to the user
+function _dropDownFunctionality(eachtodoContainer) {
+  if (todosArray.length === 0) {
+    return;
+  }
+  
+  const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
+  const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
+  todoContainerHeading.addEventListener('click', (e) => {
+    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark") {
+      return; // skips if the the user clicks on any other button
+    }
 
-/***/ "./src/button.js":
-/*!***********************!*\
-  !*** ./src/button.js ***!
-  \***********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+    todoContainerBody.classList.toggle('show-todo-container-body');
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ strikethrough)
-/* harmony export */ });
-function strikethrough() {
-//   todosArray.forEach((eachtodo) => {
-//     console.log(eachtodo);
-//   });
-
-  const completedBtn = document.querySelectorAll('.completed-btn');
-  completedBtn.forEach((eachBtn) => {
-    eachBtn.addEventListener('click', () => {
-      const ParentElement = eachBtn.parentElement.parentElement.parentElement;
-      const allPara = ParentElement.querySelectorAll('p');
-      allPara.forEach((eachPara) => {
-        const strikeThroughElement = document.createElement('s');
-        strikeThroughElement.textContent = eachPara.textContent;
-        /*eslint-disable */
-        eachPara.innerHTML = ' '; 
-        eachPara.append(strikeThroughElement);
-      });
-    });
+    const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
+    const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
+    dropDownBtn.classList.toggle('rotate');
   });
 }
 
+// this function adds functionality like drop down 
+// complete and delete 
+function _addFunctionality() {
+  // when todocontainer is clicked it drop downs 
+  const todoContainer = document.querySelectorAll('.todo-container');
+  todoContainer.forEach((eachtodoContainer) => {
+    _dropDownFunctionality(eachtodoContainer); 
+  });
 
-// export function deleteItem () {
-//     const deleteBtn = document.querySelectorAll();
-// }
+  // when completedBtn is clicked text are crossed out
+  const completedBtn = document.querySelectorAll('.completed-btn');
+  completedBtn.forEach((eachBtn) => {
+    _strikethrough(eachBtn);
+  });
+
+  // when deleteBtn is clicked the todo is deleted
+  const deleteBtn = document.querySelectorAll('.delete-btn');
+  deleteBtn.forEach((eachBtn) => {
+    _deleteTodo(eachBtn);
+  });
+}
 
 /***/ })
 
@@ -889,10 +910,9 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Todo.js */ "./src/Todo.js");
-/* harmony import */ var _button_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./button.js */ "./src/button.js");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
 /*eslint-disable */
-
+// importing all the modules from other files
 
 
 
@@ -908,7 +928,6 @@ const upcomingTask = document.querySelector('#upcoming');
 // event listener for add task btn
 addBtn.addEventListener('click', () => {
   modal.showModal();
-  (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.dropDownFunctionality)();
 });
 
 // event listener for cancel btn
@@ -918,7 +937,8 @@ cancelBtn.addEventListener('click', () => {
 
 // event listener for form
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
+  e.preventDefault(); // preventing the default 
+  // getting all the input values from the form
   const titleInput = document.querySelector('#title');
   const dueDateInput = document.querySelector('#dueDate');
   const priorityInput = document.querySelector('#priority');
@@ -943,9 +963,9 @@ form.addEventListener('submit', (e) => {
 });
 
 // when today is clicked on the sidebar renderTodayTodos
-// is called which renders all the todo duedated today
+// is called (which renders all the todo duedated today)
 today.addEventListener('click', () => {
-  (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodayTodos)();
+  (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodayTodos)(); // renders all the todos duedates today
 });
 
 // renders all the todos
@@ -961,7 +981,6 @@ upcomingTask.addEventListener('click', () => {
 // when the user logs in the pade we render the todos
 (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
 
-(0,_button_js__WEBPACK_IMPORTED_MODULE_1__["default"])();
 })();
 
 /******/ })()

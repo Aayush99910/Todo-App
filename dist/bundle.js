@@ -732,7 +732,10 @@ function strikethrough() {
       const todoTitle = todoPara.firstChild;
       todosArray.forEach(eachtodo => {
         if (eachtodo.title === todoTitle.textContent && eachtodo.completed === false) {
-          updateTodo(eachtodo.title);
+          updateTodo(eachtodo.title, false);
+        }
+        else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
+          updateTodo(eachtodo.title, true);
         }
       })
       const allPara = todoContainer.querySelectorAll('p');
@@ -748,10 +751,13 @@ function strikethrough() {
 }
 
 
-function updateTodo (title) {
+function updateTodo (title, completed) {
   todosArray.forEach((eachtodo) => {
-    if (eachtodo.title === title) {
+    if (eachtodo.title === title && completed === false) {
       eachtodo.completed = true;
+      saveTodoToLocalStorage();
+    } else if (eachtodo.title === title && completed === true) {
+      eachtodo.completed = false;
       saveTodoToLocalStorage();
     }
   });

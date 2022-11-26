@@ -7,31 +7,46 @@ import {
   renderTodayTodos, 
   renderUpcomingTodos
 } from './Todo.js';
+
+import ProjectName from './project.js';
+
+import { 
+  saveProject, 
+  renderSideBarProjects,
+  renderProjects 
+} from './project.js';
+
 import './styles/main.css';
 
 // DOM elements
 const modal = document.querySelector('#modal');
-const addBtn = document.querySelector('#add-task-btn');
-const cancelBtn = document.querySelector('#cancel');
-const form = document.querySelector('form');
+const projectModal = document.querySelector("#project-modal");
+const addTaskBtn = document.querySelector('#add-task-btn');
+const cancelTaskBtn = document.querySelector('#cancel-task');
+const formTask = document.querySelector('#add-task-form');
 const inbox = document.querySelector('#inbox');
 const today = document.querySelector('#today');
 const upcomingTask = document.querySelector('#upcoming');
+const projects = document.querySelector("#projects");
+const addProjectBtn = document.querySelector('#add-project-btn');
+const formProject = document.querySelector("#project-form");
+const cancelProjectBtn = document.querySelector("#cancel-project-btn");
 
 // event listener for add task btn
-addBtn.addEventListener('click', () => {
+addTaskBtn.addEventListener('click', () => {
   modal.showModal();
 });
 
 // event listener for cancel btn
-cancelBtn.addEventListener('click', () => {
+cancelTaskBtn.addEventListener('click', () => {
   modal.close();
 });
 
 // event listener for form
-form.addEventListener('submit', (e) => {
+formTask.addEventListener('submit', (e) => {
   e.preventDefault(); // preventing the default 
   // getting all the input values from the form
+  const heading = document.querySelector('#heading');
   const titleInput = document.querySelector('#title');
   const dueDateInput = document.querySelector('#dueDate');
   const priorityInput = document.querySelector('#priority');
@@ -50,9 +65,31 @@ form.addEventListener('submit', (e) => {
   // then calls saveTodo function which saves the todo
   // in the localStorage lastly it renders them
   modal.close();
-  const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
-  saveTodo(todo);
-  renderTodos();
+  const headingContent = heading.textContent.toLowerCase();
+  if (headingContent === "inbox" 
+    || headingContent === "today" 
+    || headingContent === "upcoming tasks") {
+      const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
+      saveTodo(todo);
+  }
+  if (headingContent === "inbox") {
+    renderTodos();
+    return;
+  } else if (headingContent === "today") {
+    renderTodayTodos();
+    return;
+  } else if (headingContent === "upcoming tasks") {
+    renderUpcomingTodos();
+    return;
+  }
+
+  const localStorageItem = JSON.parse(localStorage.getItem("myProjects"));
+  localStorageItem.forEach(item => {
+    if (item.name.toLowerCase() === headingContent) {
+      const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
+      item.array.push(todo);
+    }
+  });
 });
 
 // when today is clicked on the sidebar renderTodayTodos
@@ -71,5 +108,42 @@ upcomingTask.addEventListener('click', () => {
   renderUpcomingTodos();
 });
 
+// event listener for project 
+projects.addEventListener("click", () => {
+  renderProjects();
+});
+
+addProjectBtn.addEventListener("click", () => {
+  projectModal.showModal();
+});
+
+// event listener for cancel btn
+cancelProjectBtn.addEventListener('click', () => {
+  projectModal.close();
+});
+
+// form for projects
+formProject.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const projectName = document.querySelector("#project-name");
+
+  if (projectName.value === "") {
+    alert("Please fill in the form.");
+    return;
+  } else if (projectName.value.length > 20) {
+    alert("Please give a shorter name.");
+    return;
+  }
+
+  projectModal.close();
+  const emptyArray = [];
+  const project = new ProjectName(projectName.value, emptyArray);
+  saveProject(project);
+  renderSideBarProjects();
+  renderProjects();
+});
+
 // when the user logs in the pade we render the todos
 renderTodos();
+renderSideBarProjects();

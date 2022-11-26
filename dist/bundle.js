@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container {\n    width: 100%;}\n\n.todo-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.todo-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\nform {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\nform > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n#add, \n#cancel {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n#cancel {\n    background-color: #D66666;\n}\n\n#add:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n#cancel:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn {\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');\n\n:root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container {\n    width: 100%;}\n\n.todo-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.todo-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\nform {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\nform > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n#add, \n#cancel {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n#cancel {\n    background-color: #D66666;\n}\n\n#add:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n#cancel:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn {\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover,\n.project:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container,\n.project-container {\n    width: 100%;\n}\n\n.todo-container-heading,\n.project-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.project-container-heading {\n    border: 1px solid red;\n}\n\n.todo-container-heading:hover,\n.project-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal,\n#project-modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#project-modal {\n    width: 200px;\n    padding: 0.5em;\n}\n\n#modal::backdrop,\n#project-modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\n#add-task-form,\n#project-form {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n#add-task-form > p,\n#project-form > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n.add-btn, \n.cancel-btn {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n.cancel-btn {\n    background-color: #D66666;\n}\n\n.add-btn:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n.cancel-btn:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn,\n.delete-project-btn{\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover,\n.delete-project-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n.projects-container {\n    overflow-y: scroll;\n    max-height: 200px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n}\n\n.project {\n    height: 35px;\n    justify-content: space-between;\n    display: flex;\n    font-size: 18px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.project > p {\n    font-family: \"Comic Neue\", sans-serif;\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');\n\n:root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover,\n.project:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container,\n.project-container {\n    width: 100%;\n}\n\n.todo-container-heading,\n.project-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.project-container-heading {\n    border: 1px solid red;\n}\n\n.todo-container-heading:hover,\n.project-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal,\n#project-modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#project-modal {\n    width: 200px;\n    padding: 0.5em;\n}\n\n#modal::backdrop,\n#project-modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\n#add-task-form,\n#project-form {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n#add-task-form > p,\n#project-form > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n.add-btn, \n.cancel-btn {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n.cancel-btn {\n    background-color: #D66666;\n}\n\n.add-btn:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n.cancel-btn:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn,\n.delete-project-btn{\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover,\n.delete-project-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n.projects-container {\n    overflow-y: scroll;\n    max-height: 200px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n}\n\n.project {\n    height: 35px;\n    justify-content: space-between;\n    display: flex;\n    font-size: 18px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.project > p {\n    font-family: \"Comic Neue\", sans-serif;\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -652,6 +652,10 @@ function _render(eachtodo) {
 function _renderTodos(choice) {
   const bodyHeading = document.getElementById('heading');
   body.innerHTML = ' ';
+
+  const button = document.querySelector('.add-btn-container');
+  button.style.display = "flex";
+  
   if (todosArray.length === 0) {
     const div = document.createElement('div');
     div.classList.add('todo-container');
@@ -827,6 +831,208 @@ function _addFunctionality() {
   });
 }
 
+/***/ }),
+
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ProjectName),
+/* harmony export */   "renderProjects": () => (/* binding */ renderProjects),
+/* harmony export */   "renderSideBarProjects": () => (/* binding */ renderSideBarProjects),
+/* harmony export */   "saveProject": () => (/* binding */ saveProject)
+/* harmony export */ });
+/* eslint-disable */
+let myProjects; // initialising the array 
+
+// getting array from the localStorage
+const myProjectsFromLocalStorage = JSON.parse(localStorage.getItem('myProjects'));
+
+// if there is array stored in the localStorage
+// use it otherwise an empty array is assigned
+if (myProjectsFromLocalStorage) {
+  myProjects = myProjectsFromLocalStorage;
+} else {
+  myProjects = [];
+}
+
+// DOM elements
+const projectsContainer = document.querySelector('.projects-container');
+const body = document.querySelector('.main-body-todos')
+
+// class which return object of project and array 
+class ProjectName {
+  constructor(name, array) {
+    this.name = name;
+    this.array = array;
+  }
+}
+
+// saves project to localStorage
+function _saveProjectsToLocalStorage() {
+  localStorage.setItem('myProjects', JSON.stringify(myProjects));
+}
+
+// saves project to the array and saves project to localStorage
+function saveProject(project) {
+  myProjects.push(project);
+  _saveProjectsToLocalStorage();
+}
+
+// renders the sidebarProjects
+function renderSideBarProjects() {
+  projectsContainer.innerHTML = "";
+
+  myProjects.forEach(project => {
+    const div = document.createElement('div');
+    div.classList.add('project')
+
+    div.innerHTML = `
+        <p>${project.name}</p>` 
+
+    projectsContainer.append(div);
+  })
+}
+
+// renders project in the main body
+function renderProjects() {
+  body.innerHTML = "";
+
+  const heading = document.querySelector('#heading');
+  heading.textContent = "Projects";
+
+  const button = document.querySelector('.add-btn-container');
+  button.style.display = "none";
+
+  if (myProjects.length === 0) {
+    const div = document.createElement('div');
+    div.classList.add('todo-container');
+    div.style.justifyContent = 'center';
+    const p = document.createElement('p');
+    p.classList.add('empty-todos');
+    p.textContent = 'There is currently no projects added.';
+    div.append(p);
+    body.append(div);
+  }
+
+
+  myProjects.forEach(project => {
+    const div = document.createElement("div");
+    div.classList.add("project-container");
+
+    const divHeading = document.createElement('div');
+    divHeading.classList.add('project-container-heading')
+
+    divHeading.innerHTML = `
+      <p class="title">${project.name}</p>
+      <button class="delete-project-btn">
+          <i class="fa-solid fa-trash"></i>
+      </button>
+    `
+    div.append(divHeading);
+    body.append(div);
+  })
+
+  _addFunctionality();
+}
+
+// adds functionality which lets user to go in the 
+// project
+function _addFunctionality() {
+  const projectContainer = document.querySelectorAll('.project-container');
+  projectContainer.forEach((eachprojectContainer) => {
+    _newPage(eachprojectContainer); 
+  });
+
+  // when deleteBtn is clicked the todo is deleted
+  const deleteProjectBtn = document.querySelectorAll('.delete-project-btn');
+  deleteProjectBtn.forEach((eachBtn) => {
+    _deleteProject(eachBtn);
+  }); 
+}
+
+
+function _deleteProject(eachBtn) {
+  let newProjectsArray;
+  eachBtn.addEventListener('click', () => {
+    const confirmation = confirm("Are you sure you want to delete this project?");
+    if (confirmation === true) {
+      const projectContainer = eachBtn.parentElement.parentElement;
+      const projectContainerHeading = projectContainer.querySelector('.project-container-heading');
+      const para = projectContainerHeading.querySelector("p");
+      console.log(para.textContent);
+      newProjectsArray = myProjects.filter(project => {
+        if (project.name.toLowerCase() === para.textContent.toLowerCase()) {
+          return false;
+        }else {
+          return true;
+        }
+      });
+      myProjects = newProjectsArray;
+      _saveProjectsToLocalStorage();
+      renderProjects();
+      renderSideBarProjects();
+    }
+    else {
+      return;
+    }
+  })
+}
+
+// renders each project
+function _newPage(eachprojectContainer) {
+  eachprojectContainer.addEventListener('click', (e) => {
+    if (e.target.classList[1] === "fa-trash") {
+      return;
+    }
+    const para = eachprojectContainer.querySelector('p')
+    const title = para.textContent;
+    myProjects.forEach(project => {
+      if (project.name === title) {
+        body.innerHTML = "";
+
+        const heading = document.querySelector('#heading');
+        heading.textContent = `${project.name}`;
+
+        const button = document.querySelector('.add-btn-container');
+        button.style.display = "flex";
+
+        if (project.array.length === 0) {
+          const div = document.createElement('div');
+          div.classList.add('todo-container');
+          div.style.justifyContent = 'center';
+          const p = document.createElement('p');
+          p.classList.add('empty-todos');
+          p.textContent = 'There is currently no task added.';
+          div.append(p);
+          body.append(div);
+        }
+
+        project.array.forEach(project => {
+          const div = document.createElement("div");
+          div.classList.add("project-container");
+      
+          const divHeading = document.createElement('div');
+          divHeading.classList.add('project-container-heading')
+      
+          divHeading.innerHTML = `
+            <p class="title">${project.name}</p>
+            <button class="delete-project-btn">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+          `
+          div.append(divHeading);
+          body.append(div);
+        })
+      }
+    })
+  });
+}
+
 /***/ })
 
 /******/ 	});
@@ -910,35 +1116,47 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Todo.js */ "./src/Todo.js");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.js */ "./src/project.js");
+/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
 /*eslint-disable */
 // importing all the modules from other files
 
 
 
+
+
+
+
+
 // DOM elements
 const modal = document.querySelector('#modal');
-const addBtn = document.querySelector('#add-task-btn');
-const cancelBtn = document.querySelector('#cancel');
-const form = document.querySelector('form');
+const projectModal = document.querySelector("#project-modal");
+const addTaskBtn = document.querySelector('#add-task-btn');
+const cancelTaskBtn = document.querySelector('#cancel-task');
+const formTask = document.querySelector('#add-task-form');
 const inbox = document.querySelector('#inbox');
 const today = document.querySelector('#today');
 const upcomingTask = document.querySelector('#upcoming');
+const projects = document.querySelector("#projects");
+const addProjectBtn = document.querySelector('#add-project-btn');
+const formProject = document.querySelector("#project-form");
+const cancelProjectBtn = document.querySelector("#cancel-project-btn");
 
 // event listener for add task btn
-addBtn.addEventListener('click', () => {
+addTaskBtn.addEventListener('click', () => {
   modal.showModal();
 });
 
 // event listener for cancel btn
-cancelBtn.addEventListener('click', () => {
+cancelTaskBtn.addEventListener('click', () => {
   modal.close();
 });
 
 // event listener for form
-form.addEventListener('submit', (e) => {
+formTask.addEventListener('submit', (e) => {
   e.preventDefault(); // preventing the default 
   // getting all the input values from the form
+  const heading = document.querySelector('#heading');
   const titleInput = document.querySelector('#title');
   const dueDateInput = document.querySelector('#dueDate');
   const priorityInput = document.querySelector('#priority');
@@ -957,9 +1175,31 @@ form.addEventListener('submit', (e) => {
   // then calls saveTodo function which saves the todo
   // in the localStorage lastly it renders them
   modal.close();
-  const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
-  (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.saveTodo)(todo);
-  (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
+  const headingContent = heading.textContent.toLowerCase();
+  if (headingContent === "inbox" 
+    || headingContent === "today" 
+    || headingContent === "upcoming tasks") {
+      const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
+      (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.saveTodo)(todo);
+  }
+  if (headingContent === "inbox") {
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
+    return;
+  } else if (headingContent === "today") {
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodayTodos)();
+    return;
+  } else if (headingContent === "upcoming tasks") {
+    (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderUpcomingTodos)();
+    return;
+  }
+
+  const localStorageItem = JSON.parse(localStorage.getItem("myProjects"));
+  localStorageItem.forEach(item => {
+    if (item.name.toLowerCase() === headingContent) {
+      const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
+      item.array.push(todo);
+    }
+  });
 });
 
 // when today is clicked on the sidebar renderTodayTodos
@@ -978,9 +1218,45 @@ upcomingTask.addEventListener('click', () => {
   (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderUpcomingTodos)();
 });
 
+// event listener for project 
+projects.addEventListener("click", () => {
+  (0,_project_js__WEBPACK_IMPORTED_MODULE_1__.renderProjects)();
+});
+
+addProjectBtn.addEventListener("click", () => {
+  projectModal.showModal();
+});
+
+// event listener for cancel btn
+cancelProjectBtn.addEventListener('click', () => {
+  projectModal.close();
+});
+
+// form for projects
+formProject.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const projectName = document.querySelector("#project-name");
+
+  if (projectName.value === "") {
+    alert("Please fill in the form.");
+    return;
+  } else if (projectName.value.length > 20) {
+    alert("Please give a shorter name.");
+    return;
+  }
+
+  projectModal.close();
+  const emptyArray = [];
+  const project = new _project_js__WEBPACK_IMPORTED_MODULE_1__["default"](projectName.value, emptyArray);
+  (0,_project_js__WEBPACK_IMPORTED_MODULE_1__.saveProject)(project);
+  (0,_project_js__WEBPACK_IMPORTED_MODULE_1__.renderSideBarProjects)();
+  (0,_project_js__WEBPACK_IMPORTED_MODULE_1__.renderProjects)();
+});
+
 // when the user logs in the pade we render the todos
 (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderTodos)();
-
+(0,_project_js__WEBPACK_IMPORTED_MODULE_1__.renderSideBarProjects)();
 })();
 
 /******/ })()

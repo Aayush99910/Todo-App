@@ -21,8 +21,26 @@
             <div class="sidebar-container-div" id="inbox">Inbox &nbsp;<i class="fa-solid fa-inbox"></i></div>
             <div class="sidebar-container-div" id="today">Today &nbsp;<i class="fa-solid fa-calendar-week"></i></div>
             <div class="sidebar-container-div" id="upcoming">Upcoming Tasks &nbsp;<i class="fa-solid fa-arrow-right"></i></div>
-            <div class="sidebar-container-div">Projects &nbsp;<i class="fa-solid fa-list"></i></div>
-            <div class="add-project-container"><button id="add-project-btn"><i class="fa-solid fa-plus"></i>&nbsp;Add Project</button></div>
+            <div class="sidebar-container-div" id="projects">Projects &nbsp;<i class="fa-solid fa-list"></i></div>
+            <div class="add-project-container">
+                <dialog id="project-modal">
+                    <form id="project-form">
+                        <div class="input-label-container">
+                            <label for="project-name">Project's Name</label>
+                            <input type="text" id="project-name" required placeholder="Project's name">
+                        </div>
+                        <div class="button-container">
+                            <button class="add-btn" type="submit">Add</button>
+                            <button id="cancel-project-btn" class="cancel-btn" type="button">Cancel</button>
+                        </div>
+                    </form>
+                </dialog>
+                <button id="add-project-btn">
+                    <i class="fa-solid fa-plus"></i>&nbsp;Add Project
+                </button>
+            </div>
+            <div class="projects-container">
+            </div>
         </section>
         <section class="main-body-container">
             <div id="heading" class="body-heading"></div>
@@ -30,7 +48,7 @@
                 <button id="add-task-btn"><i class="fa-solid fa-plus"></i>&nbsp;Add Task</button>
             </div>
             <dialog id="modal">
-                <form method="dialog">
+                <form method="dialog" id="add-task-form">
                     <p>Add your todo</p>
 
                     <div class="input-label-container ">
@@ -58,8 +76,8 @@
                     </div>
                     
                     <div class="button-container">
-                        <button type="submit" id="add">Add</button>
-                        <button type="button" id="cancel">Cancel</button>
+                        <button type="submit" id="add-task" class="add-btn">Add</button>
+                        <button type="button" id="cancel-task" class="cancel-btn">Cancel</button>
                     </div>
                 </form>
             </dialog>

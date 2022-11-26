@@ -98,11 +98,11 @@ main {
     font-family: "Comic Neue", sans-serif;
     font-size: 20px;
     padding: 2px 2px;
-    align-items: center;
     transition: 0.20s;
 }
 
-.sidebar-container-div:hover {
+.sidebar-container-div:hover,
+.project:hover {
     cursor: pointer;
     background-color: var(--sidebar-hover-bg-color);
 }
@@ -134,10 +134,13 @@ main {
     display: flex;
 }
 
-.todo-container {
-    width: 100%;}
+.todo-container,
+.project-container {
+    width: 100%;
+}
 
-.todo-container-heading {
+.todo-container-heading,
+.project-container-heading {
     display: flex;
     height: 40px;
     width: 100%;
@@ -147,7 +150,12 @@ main {
     border-radius: 3px;
 }
 
-.todo-container-heading:hover {
+.project-container-heading {
+    border: 1px solid red;
+}
+
+.todo-container-heading:hover,
+.project-container-heading:hover {
     cursor: pointer;
     background-color: #c0c0c0;
 }
@@ -203,7 +211,8 @@ main {
     background-color: var(--sidebar-bg-color);
 }
 
-#modal {
+#modal,
+#project-modal {
     margin: auto;
     padding: 1em;
     transition: 015s;
@@ -213,18 +222,26 @@ main {
     border-radius: 6px;
 }
 
-#modal::backdrop {
+#project-modal {
+    width: 200px;
+    padding: 0.5em;
+}
+
+#modal::backdrop,
+#project-modal::backdrop {
     background: rgb(0 0 0);
     opacity: 0.3;
 }
 
-form {
+#add-task-form,
+#project-form {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-form > p {
+#add-task-form > p,
+#project-form > p {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -268,8 +285,8 @@ input, select, textarea {
     font-size: 16px;
 }
 
-#add, 
-#cancel {
+.add-btn, 
+.cancel-btn {
     padding: 7px 15px;
     border: none;
     background-color: #78C677;
@@ -279,16 +296,16 @@ input, select, textarea {
     font-size: 16px;
 }
 
-#cancel {
+.cancel-btn {
     background-color: #D66666;
 }
 
-#add:hover {
+.add-btn:hover {
     cursor: pointer;
     background-color: #1eb41c;
 }
 
-#cancel:hover {
+.cancel-btn:hover {
     cursor: pointer;
     background-color: rgba(172, 26, 26, 0.857);
 }
@@ -302,7 +319,8 @@ input, select, textarea {
 
 .completed-btn,
 .dropdown-btn,
-.delete-btn {
+.delete-btn,
+.delete-project-btn{
     border: none;
     cursor: pointer;
     background: none;
@@ -310,7 +328,8 @@ input, select, textarea {
 
 .completed-btn:hover,
 .dropdown-btn:hover,
-.delete-btn:hover {
+.delete-btn:hover,
+.delete-project-btn:hover {
     color: white;
 }
 
@@ -341,6 +360,28 @@ input, select, textarea {
 
 .rotate {
     transform: rotate(180deg);
+}
+
+.projects-container {
+    overflow-y: scroll;
+    max-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project {
+    height: 35px;
+    justify-content: space-between;
+    display: flex;
+    font-size: 18px;
+    padding: 2px 2px;
+    align-items: center;
+    transition: 0.20s;
+}
+
+.project > p {
+    font-family: "Comic Neue", sans-serif;
 }
 
 

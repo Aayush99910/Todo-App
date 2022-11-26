@@ -125,6 +125,10 @@ function _render(eachtodo) {
 function _renderTodos(choice) {
   const bodyHeading = document.getElementById('heading');
   body.innerHTML = ' ';
+
+  const button = document.querySelector('.add-btn-container');
+  button.style.display = "flex";
+  
   if (todosArray.length === 0) {
     const div = document.createElement('div');
     div.classList.add('todo-container');

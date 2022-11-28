@@ -17,7 +17,7 @@ import {
   saveTodoToProject
 } from './project.js';
 
-import './styles/main.css';
+import './assests/styles/main.css';
 
 // DOM elements
 const modal = document.querySelector('#modal');

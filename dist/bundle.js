@@ -2,19 +2,19 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/styles/main.css":
-/*!*******************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/styles/main.css ***!
-  \*******************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/assests/styles/main.css":
+/*!***************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/assests/styles/main.css ***!
+  \***************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
 // Imports
 
@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover,\n.project:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container,\n.project-container {\n    width: 100%;\n}\n\n.todo-container-heading,\n.project-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.project-container-heading {\n    border: 1px solid red;\n}\n\n.todo-container-heading:hover,\n.project-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal,\n#project-modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#project-modal {\n    width: 200px;\n    padding: 0.5em;\n}\n\n#modal::backdrop,\n#project-modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\n#add-task-form,\n#project-form {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n#add-task-form > p,\n#project-form > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n.add-btn, \n.cancel-btn {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n.cancel-btn {\n    background-color: #D66666;\n}\n\n.add-btn:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n.cancel-btn:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn,\n.delete-project-btn{\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover,\n.delete-project-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n.projects-container {\n    overflow-y: scroll;\n    max-height: 200px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n}\n\n.project {\n    height: 35px;\n    justify-content: space-between;\n    display: flex;\n    font-size: 18px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.project > p {\n    font-family: \"Comic Neue\", sans-serif;\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}", "",{"version":3,"sources":["webpack://./src/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');\n\n:root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover,\n.project:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container,\n.project-container {\n    width: 100%;\n}\n\n.todo-container-heading,\n.project-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.project-container-heading {\n    border: 1px solid red;\n}\n\n.todo-container-heading:hover,\n.project-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal,\n#project-modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#project-modal {\n    width: 200px;\n    padding: 0.5em;\n}\n\n#modal::backdrop,\n#project-modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\n#add-task-form,\n#project-form {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n#add-task-form > p,\n#project-form > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n.add-btn, \n.cancel-btn {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n.cancel-btn {\n    background-color: #D66666;\n}\n\n.add-btn:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n.cancel-btn:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn,\n.delete-project-btn{\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover,\n.delete-project-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n.projects-container {\n    overflow-y: scroll;\n    max-height: 200px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n}\n\n.project {\n    height: 35px;\n    justify-content: space-between;\n    display: flex;\n    font-size: 18px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.project > p {\n    font-family: \"Comic Neue\", sans-serif;\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover,\n.project:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container,\n.project-container {\n    width: 100%;\n}\n\n.todo-container-heading,\n.project-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.project-container-heading {\n    border: 1px solid  black;\n}\n\n.todo-container-heading:hover,\n.project-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal,\n#project-modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#project-modal {\n    width: 200px;\n    padding: 0.5em;\n}\n\n#modal::backdrop,\n#project-modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\n#add-task-form,\n#project-form {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n#add-task-form > p,\n#project-form > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n.add-btn, \n.cancel-btn {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n.cancel-btn {\n    background-color: #D66666;\n}\n\n.add-btn:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n.cancel-btn:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn,\n.delete-project-btn{\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover,\n.delete-project-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n.projects-container {\n    overflow-y: scroll;\n    max-height: 200px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n}\n\n.project {\n    height: 35px;\n    justify-content: space-between;\n    display: flex;\n    font-size: 18px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.project > p {\n    font-family: \"Comic Neue\", sans-serif;\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}", "",{"version":3,"sources":["webpack://./src/assests/styles/main.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Gugi&family=Jaldi&family=Montserrat:wght@600&family=MuseoModerno&family=Noto+Serif+Khojki:wght@600&family=Roboto+Mono&family=Roboto:wght@300&family=Salsa&display=swap');\n\n:root {\n    --header-footer-color: #3C4048;\n    /* colors for header and footer */\n    /* BA94D1 */\n    /* 5DA7DB */\n    /* 3C4048 */\n    /* 0D4C92 */\n    --sidebar-bg-color: #EFEFEF;\n    --sidebar-hover-bg-color: #c2c0c0;\n}\n\n.green {\n    background-color: rgb(81, 167, 81);\n}\n\n.yellow {\n    background-color: rgb(210, 165, 94);\n}\n\n.red {\n    background-color: rgb(203, 86, 86);\n}\n\nbody {\n    height: 100vh;\n    background-color: #D9D9D9;\n    display: flex;\n    flex-direction: column;\n}\n\n* {\n    padding: 0;\n    margin: 0;\n    box-sizing: border-box;\n}\n\nheader{\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    padding: 10px;\n}\n\nheader p {\n    font-family: \"Gugi\", sans-serif;\n    font-size: 55px;\n    color: white;\n}\n\n#g {\n    color: black;\n}\n\n#i {\n    color: green;\n}\n\nheader > div {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\nheader > div > button {\n    padding: 5px 10px;\n    background-color: black;\n    color: white;\n    border: none;\n    border-radius: 6px;\n    font-size: 20px;\n    font-family: \"Comic Neue\", sans-serif;\n}\n\nmain {\n    width: 100%;\n    height: 80%;\n    display: flex;\n}\n\n.sidebar-container {\n    height: 100%;\n    width: 20%;\n    padding: 30px 10px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    background-color: var(--sidebar-bg-color);\n}\n\n.sidebar-container-div {\n    height: 40px;\n    display: flex;\n    justify-content: start;\n    align-items: center;\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    padding: 2px 2px;\n    transition: 0.20s;\n}\n\n.sidebar-container-div:hover,\n.project:hover {\n    cursor: pointer;\n    background-color: var(--sidebar-hover-bg-color);\n}\n\n.main-body-container {\n    width: 80%;\n    height: 100%;\n    padding: 20px;\n    display: flex;\n    flex-direction: column;\n    gap: 15px;\n    overflow-y: scroll;\n}\n\n.add-btn-container {\n    display: flex;\n    justify-content: flex-end;\n}\n\n.body-heading {\n    font-family: 'Montserrat', sans-serif;\n    font-size: 30px;\n}\n\n.main-body-todos {\n    flex-direction: column;\n    align-items: center;\n    gap: 10px;\n    display: flex;\n}\n\n.todo-container,\n.project-container {\n    width: 100%;\n}\n\n.todo-container-heading,\n.project-container-heading {\n    display: flex;\n    height: 40px;\n    width: 100%;\n    justify-content: space-between;\n    padding: 8px;\n    align-items: center;\n    border-radius: 3px;\n}\n\n.project-container-heading {\n    border: 1px solid  black;\n}\n\n.todo-container-heading:hover,\n.project-container-heading:hover {\n    cursor: pointer;\n    background-color: #c0c0c0;\n}\n\n.empty-todos {\n    font-family: \"Comic Neue\", sans-serif;\n    font-size: 20px;\n    font-weight: bold;\n} \n\n.title {\n    font-family: 'MuseoModerno', cursive;\n    font-size: 20px;\n    font-weight: 600;\n}\n\n.dueDate {\n    font-family: \"Roboto Mono\", sans-serif;\n}\n\n.priority {\n    font-family: \"Roboto\", sans-serif;\n}\n\n#add-task-btn,\n#add-project-btn {\n    background-color: #D9D9D9;\n    border: none;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 18px;\n    font-weight: bold;\n    padding: 0.5rem;\n    border-radius: 8px;\n    transition: 0.20s;\n}\n\n#add-project-btn {\n    background-color: var(--sidebar-bg-color);\n}\n\n#add-task-btn:hover,\n#add-project-btn:hover {\n    background-color: #b8b5b5;\n    cursor: pointer;\n}\n\n.add-project-container {\n    display: flex; \n    justify-content: center;\n}   \n\n.add-project-container:hover {\n    background-color: var(--sidebar-bg-color);\n}\n\n#modal,\n#project-modal {\n    margin: auto;\n    padding: 1em;\n    transition: 015s;\n    border: none;\n    width: 300px;\n    background-color: #3C4048;\n    border-radius: 6px;\n}\n\n#project-modal {\n    width: 200px;\n    padding: 0.5em;\n}\n\n#modal::backdrop,\n#project-modal::backdrop {\n    background: rgb(0 0 0);\n    opacity: 0.3;\n}\n\n#add-task-form,\n#project-form {\n    display: flex;\n    flex-direction: column;\n    gap: 6px;\n}\n\n#add-task-form > p,\n#project-form > p {\n    font-family: \"Roboto\", sans-serif;\n    font-weight: bold;\n    font-size: 20px;\n    text-align: center;\n    color: white;\n}\n\n.input-label-container {\n    display: flex;\n    flex-direction: column;\n}\n\n.input-label-container > input,\n.input-label-container > select{\n    height: 35px;\n    outline: none;\n    border: none;\n    border-radius: 5px;\n    padding: 5px;\n}\n\n.input-label-container > label {\n    font-family: \"Jaldi\", sans-serif;\n    font-size: 20px;\n    color: white;\n}\n\ntextarea {\n    height: 80px;\n    padding: 5px;\n}\n\n.button-container {\n    display: flex;\n    justify-content: flex-end;\n    gap: 4px;\n}\n\ninput, select, textarea {\n    font-family: 'Roboto', sans-serif;\n    font-size: 16px;\n}\n\n.add-btn, \n.cancel-btn {\n    padding: 7px 15px;\n    border: none;\n    background-color: #78C677;\n    border-radius: 5px;\n    color: white;\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16px;\n}\n\n.cancel-btn {\n    background-color: #D66666;\n}\n\n.add-btn:hover {\n    cursor: pointer;\n    background-color: #1eb41c;\n}\n\n.cancel-btn:hover {\n    cursor: pointer;\n    background-color: rgba(172, 26, 26, 0.857);\n}\n\n.completed-delete-dropdown-container {\n    width: 8%;\n    min-width: 50px;\n    display: flex;\n    justify-content: space-between;\n}\n\n.completed-btn,\n.dropdown-btn,\n.delete-btn,\n.delete-project-btn{\n    border: none;\n    cursor: pointer;\n    background: none;\n}\n\n.completed-btn:hover,\n.dropdown-btn:hover,\n.delete-btn:hover,\n.delete-project-btn:hover {\n    color: white;\n}\n\n.todo-container-body {\n    height: 0;\n    overflow: hidden;\n    background-color: rgb(245, 245, 245);\n    transition: 0.20s ease-in;\n}\n\n.show-todo-container-body {\n    height: 100px;\n    padding: 0.5rem;\n}\n\n.priority-dueDate-container {\n    display: flex;\n    justify-content: space-between;\n    margin: 15px 0px;\n}\n\n.todo-body-priority,\n.todo-body-dueDate,\n.todo-body-description {\n    font-family: \"Roboto\", sans-serif;\n    font-size: 16.5px;\n}\n\n.rotate {\n    transform: rotate(180deg);\n}\n\n.projects-container {\n    overflow-y: scroll;\n    max-height: 200px;\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n}\n\n.project {\n    height: 35px;\n    justify-content: space-between;\n    display: flex;\n    font-size: 18px;\n    padding: 2px 2px;\n    align-items: center;\n    transition: 0.20s;\n}\n\n.project > p {\n    font-family: \"Comic Neue\", sans-serif;\n}\n\n\nfooter {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background-color: var(--header-footer-color);\n    height: 7%;\n}\n\nfooter p{\n    font-family: \"Comic Neue\", sans-serif;\n    color: white;\n    font-size: 18px;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -151,29 +151,29 @@ module.exports = function (item) {
 
 /***/ }),
 
-/***/ "./src/styles/main.css":
-/*!*****************************!*\
-  !*** ./src/styles/main.css ***!
-  \*****************************/
+/***/ "./src/assests/styles/main.css":
+/*!*************************************!*\
+  !*** ./src/assests/styles/main.css ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./main.css */ "./node_modules/css-loader/dist/cjs.js!./src/styles/main.css");
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_main_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!./main.css */ "./node_modules/css-loader/dist/cjs.js!./src/assests/styles/main.css");
 
       
       
@@ -519,6 +519,7 @@ module.exports = styleTagTransform;
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "_render": () => (/* binding */ _render),
 /* harmony export */   "createTodo": () => (/* binding */ createTodo),
 /* harmony export */   "renderTodayTodos": () => (/* binding */ renderTodayTodos),
 /* harmony export */   "renderTodos": () => (/* binding */ renderTodos),
@@ -737,7 +738,7 @@ function _strikethrough(eachBtn) {
 }
 
 
-// deleted a todo when user clicks on the deleteBtn
+// deletes a todo when user clicks on the deleteBtn
 // it asks user for confirmation if they say yes 
 // it proceeds to delete that particular obj from the array
 // and at last it renders the new array
@@ -844,9 +845,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ ProjectName),
 /* harmony export */   "renderProjects": () => (/* binding */ renderProjects),
 /* harmony export */   "renderSideBarProjects": () => (/* binding */ renderSideBarProjects),
-/* harmony export */   "saveProject": () => (/* binding */ saveProject)
+/* harmony export */   "saveProject": () => (/* binding */ saveProject),
+/* harmony export */   "saveTodoToProject": () => (/* binding */ saveTodoToProject)
 /* harmony export */ });
+/* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Todo.js */ "./src/Todo.js");
 /* eslint-disable */
+
 let myProjects; // initialising the array 
 
 // getting array from the localStorage
@@ -881,6 +885,49 @@ function _saveProjectsToLocalStorage() {
 function saveProject(project) {
   myProjects.push(project);
   _saveProjectsToLocalStorage();
+}
+
+// saves eachtodo in the array of each project
+function saveTodoToProject(headingContent, titleValue, dueDateValue, priorityValue, descriptionValue) {
+  myProjects.forEach(project => {
+    if (project.name.toLowerCase() === headingContent) {
+      const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleValue, dueDateValue, priorityValue, descriptionValue, false);
+      project.array.push(todo);
+      _saveProjectsToLocalStorage();
+      _renderTodoOfParticularProject(project.name);
+      _addFunctionality();
+    }
+  });
+}
+
+// renders the todos of a particular project
+// it takes in the project title
+function _renderTodoOfParticularProject(titleOfProject) {
+  myProjects.forEach(project => {
+    if (titleOfProject === project.name) {
+      const bodyHeading = document.getElementById('heading');
+      body.innerHTML = ' ';
+
+      const button = document.querySelector('.add-btn-container');
+      button.style.display = "flex";
+
+      if (project.array.length === 0) {
+        const div = document.createElement('div');
+        div.classList.add('todo-container');
+        div.style.justifyContent = 'center';
+        const p = document.createElement('p');
+        p.classList.add('empty-todos');
+        p.textContent = 'There is currently no task added.';
+        div.append(p);
+        body.append(div);
+      }
+
+      bodyHeading.textContent = `${project.name}`;
+      project.array.forEach((eachtodo) => {
+        (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__._render)(eachtodo);
+      });
+    }
+  })
 }
 
 // renders the sidebarProjects
@@ -943,10 +990,33 @@ function renderProjects() {
 // adds functionality which lets user to go in the 
 // project
 function _addFunctionality() {
+  // when todocontainer is clicked it drop downs 
+  const todoContainer = document.querySelectorAll('.todo-container');
+  todoContainer.forEach((eachtodoContainer) => {
+    _dropDownFunctionality(eachtodoContainer); 
+  });
+
+  // when completedBtn is clicked text are crossed out
+  const completedBtn = document.querySelectorAll('.completed-btn');
+  completedBtn.forEach((eachBtn) => {
+    _strikethrough(eachBtn);
+  });
+
+  // when deleteBtn is clicked the todo is deleted
+  const deleteBtn = document.querySelectorAll('.delete-btn');
+  deleteBtn.forEach((eachBtn) => {
+    _deleteTodo(eachBtn);
+  });
+
   const projectContainer = document.querySelectorAll('.project-container');
   projectContainer.forEach((eachprojectContainer) => {
     _newPage(eachprojectContainer); 
   });
+
+  const sidebarProjectContainer = document.querySelectorAll(".project");
+  sidebarProjectContainer.forEach((eachsidebarProject) => {
+    _newPage(eachsidebarProject); 
+  })
 
   // when deleteBtn is clicked the todo is deleted
   const deleteProjectBtn = document.querySelectorAll('.delete-project-btn');
@@ -955,7 +1025,8 @@ function _addFunctionality() {
   }); 
 }
 
-
+// deletes a project from the projects array
+// and saves it to the localStorage
 function _deleteProject(eachBtn) {
   let newProjectsArray;
   eachBtn.addEventListener('click', () => {
@@ -983,7 +1054,7 @@ function _deleteProject(eachBtn) {
   })
 }
 
-// renders each project
+// renders new Page for a project
 function _newPage(eachprojectContainer) {
   eachprojectContainer.addEventListener('click', (e) => {
     if (e.target.classList[1] === "fa-trash") {
@@ -1012,26 +1083,134 @@ function _newPage(eachprojectContainer) {
           body.append(div);
         }
 
-        project.array.forEach(project => {
-          const div = document.createElement("div");
-          div.classList.add("project-container");
-      
-          const divHeading = document.createElement('div');
-          divHeading.classList.add('project-container-heading')
-      
-          divHeading.innerHTML = `
-            <p class="title">${project.name}</p>
-            <button class="delete-project-btn">
-                <i class="fa-solid fa-trash"></i>
-            </button>
-          `
-          div.append(divHeading);
-          body.append(div);
+        project.array.forEach(eachtodo => {
+          (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__._render)(eachtodo);
+        })
+        _addFunctionality();
+      }
+    })
+  });
+}
+
+
+// dropDownFunctionality
+// when this function is invoked a new class is added to todo
+// body container which makes it visible to the user
+function _dropDownFunctionality(eachtodoContainer) {
+  if (myProjects.length === 0) {
+    return;
+  }
+  
+  const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
+  const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
+  todoContainerHeading.addEventListener('click', (e) => {
+    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark") {
+      return; // skips if the the user clicks on any other button
+    }
+
+    todoContainerBody.classList.toggle('show-todo-container-body');
+
+    const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
+    const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
+    dropDownBtn.classList.toggle('rotate');
+  });
+}
+
+
+// strikethrough function which puts a line on the text 
+// whenever a user clicks on the complete function 
+// it also removes the line when user clicks on it again
+// here this function also calls updateTodo to update the 
+// completed property to true or false
+function _strikethrough(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+    const pageHeading = document.querySelector("#heading");
+    myProjects.forEach(project => {
+      if (project.name === pageHeading.textContent) {
+        project.array.forEach(eachtodo => {
+          if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
+            _updateTodo(project.array, eachtodo.title, false);
+            const allPara = todoContainer.querySelectorAll('p');
+            allPara.forEach((eachPara) => {
+                const strikeThroughElement = document.createElement('s');
+                strikeThroughElement.textContent = eachPara.textContent;
+                /*eslint-disable */
+                eachPara.innerHTML = ''; 
+                eachPara.append(strikeThroughElement);
+            });
+          }
+          else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
+            _updateTodo(project.array, eachtodo.title, true);
+            const allPara = todoContainer.querySelectorAll("p");
+            allPara.forEach((eachPara) => {
+              const eachStrikePara = eachPara.querySelector("s");
+              let text = eachStrikePara.textContent;
+              eachPara.innerHTML = '';
+              eachPara.textContent = text;
+            });
+          }
         })
       }
     })
   });
 }
+
+
+// deletes a todo when user clicks on the deleteBtn
+// it asks user for confirmation if they say yes 
+// it proceeds to delete that particular abj from the array
+// and that array is nested inside eachproject obj inside 
+// the project array.
+// and at last it renders the new array
+function _deleteTodo(eachBtn) {
+  let mynewProjectTodosArray;
+  eachBtn.addEventListener('click', () => {
+    const confirmation = confirm("Are you sure you want to delete this todo?");
+    if (confirmation === true) {
+      const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+      const todoContainerHeading = eachBtn.parentElement.parentElement;
+      const todoPara = todoContainerHeading.querySelector("p");
+      const todoTitle = todoPara.firstChild;
+      const heading = document.querySelector("#heading");
+      myProjects.forEach(project => {
+        if (project.name === heading.textContent) {
+          mynewProjectTodosArray = project.array.filter(eachtodo => {
+            if (eachtodo.title === todoTitle.textContent) {
+              return false;
+            }else {
+              return true;
+            }
+          });
+          project.array = mynewProjectTodosArray;
+          _saveProjectsToLocalStorage();
+          _renderTodoOfParticularProject(project.name);
+        }
+      })
+    }
+    else {
+      return;
+    }
+  })
+}
+
+// updatesTodo to either completed true or conpleted false
+// and calls saveProjectsToLocalStorage to update the new array
+function _updateTodo (array, title, completed) {
+  array.forEach((eachtodo) => {
+    if (eachtodo.title === title && completed === false) {
+      eachtodo.completed = true;
+      _saveProjectsToLocalStorage();
+    } else if (eachtodo.title === title && completed === true) {
+      eachtodo.completed = false;
+      _saveProjectsToLocalStorage();
+    }
+  });
+};
+
 
 /***/ })
 
@@ -1117,7 +1296,7 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Todo.js */ "./src/Todo.js");
 /* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.js */ "./src/project.js");
-/* harmony import */ var _styles_main_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styles/main.css */ "./src/styles/main.css");
+/* harmony import */ var _assests_styles_main_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assests/styles/main.css */ "./src/assests/styles/main.css");
 /*eslint-disable */
 // importing all the modules from other files
 
@@ -1192,14 +1371,8 @@ formTask.addEventListener('submit', (e) => {
     (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.renderUpcomingTodos)();
     return;
   }
-
-  const localStorageItem = JSON.parse(localStorage.getItem("myProjects"));
-  localStorageItem.forEach(item => {
-    if (item.name.toLowerCase() === headingContent) {
-      const todo = (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.createTodo)(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
-      item.array.push(todo);
-    }
-  });
+  
+  (0,_project_js__WEBPACK_IMPORTED_MODULE_1__.saveTodoToProject)(headingContent, titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
 });
 
 // when today is clicked on the sidebar renderTodayTodos

@@ -46,7 +46,7 @@ export const renderUpcomingTodos = () => {
 };
 
 // renders each todo
-function _render(eachtodo) {
+export function _render(eachtodo) {
   const todoContainer = document.createElement('div');
   todoContainer.classList.add('todo-container');
 
@@ -210,7 +210,7 @@ function _strikethrough(eachBtn) {
 }
 
 
-// deleted a todo when user clicks on the deleteBtn
+// deletes a todo when user clicks on the deleteBtn
 // it asks user for confirmation if they say yes 
 // it proceeds to delete that particular obj from the array
 // and at last it renders the new array

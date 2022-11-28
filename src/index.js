@@ -13,7 +13,8 @@ import ProjectName from './project.js';
 import { 
   saveProject, 
   renderSideBarProjects,
-  renderProjects 
+  renderProjects,
+  saveTodoToProject
 } from './project.js';
 
 import './styles/main.css';
@@ -82,14 +83,8 @@ formTask.addEventListener('submit', (e) => {
     renderUpcomingTodos();
     return;
   }
-
-  const localStorageItem = JSON.parse(localStorage.getItem("myProjects"));
-  localStorageItem.forEach(item => {
-    if (item.name.toLowerCase() === headingContent) {
-      const todo = createTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value, false);
-      item.array.push(todo);
-    }
-  });
+  
+  saveTodoToProject(headingContent, titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
 });
 
 // when today is clicked on the sidebar renderTodayTodos

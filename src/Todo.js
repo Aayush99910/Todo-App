@@ -1,10 +1,15 @@
 /*eslint-disable */
+import { updateTodoToProject } from './project.js';
 
 let todosArray; // initailising the todosarray
 
 // getting todos from localStorage
 const todosArrayFromLocalStorage = JSON.parse(localStorage.getItem('myTodos')); 
 
+// saves the todoArray in the localStorage
+function _saveTodoToLocalStorage() {
+  localStorage.setItem('myTodos', JSON.stringify(todosArray));
+}
 
 // if todos found in the localStorage we use that else
 // make a new empty array
@@ -14,11 +19,15 @@ if (todosArrayFromLocalStorage) {
   todosArray = [];
 }
 
+
+
 // DOM element
 const body = document.querySelector('.main-body-todos');
 const updateTaskForm = document.querySelector('#update-task-form');
 const updateModal = document.querySelector('#update-modal');
 const cancelUpdateTask = document.querySelector('#cancel-update-task');
+
+
 
 // factory function which makes todo
 export const createTodo = (title, dueDate, priority, description, completed) => ({
@@ -29,6 +38,8 @@ export const createTodo = (title, dueDate, priority, description, completed) => 
   completed
 });
 
+
+
 // this function pushes the object todo in the array
 // and then saves the todoArray in the localStorage
 export const saveTodo = (todo) => {
@@ -36,17 +47,25 @@ export const saveTodo = (todo) => {
   _saveTodoToLocalStorage();
 };
 
+
+
 export const renderTodos = () => {
   _renderTodos('all');
 };
+
+
 
 export function renderTodayTodos() {
   _renderTodos('today');
 }
 
+
+
 export const renderUpcomingTodos = () => {
   _renderTodos('upcoming');
 };
+
+
 
 // renders each todo
 export function _render(eachtodo) {
@@ -124,6 +143,8 @@ export function _render(eachtodo) {
   body.append(todoContainer);
 }
 
+
+
 // renderTodo takes a argument
 // renders according to the argument
 // if choice is all renders all the todos
@@ -179,78 +200,62 @@ function _renderTodos(choice) {
   _addFunctionality();
 }
 
-// strikethrough function which puts a line on the text 
-// whenever a user clicks on the complete function 
-// it also removes the line when user clicks on it again
-// here this function also calls updateTodo to update the 
-// completed property to true or false
-function _strikethrough(eachBtn) {
-  eachBtn.addEventListener('click', () => {
-    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
-    const todoContainerHeading = eachBtn.parentElement.parentElement;
-    const todoPara = todoContainerHeading.querySelector("p");
-    const todoTitle = todoPara.firstChild;
-    todosArray.forEach(eachtodo => {
-      if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
-        _updateCompletedStatus(eachtodo.title, false);
-        const allPara = todoContainer.querySelectorAll('p');
-        allPara.forEach((eachPara) => {
-            const strikeThroughElement = document.createElement('s');
-            strikeThroughElement.textContent = eachPara.textContent;
-            /*eslint-disable */
-            eachPara.innerHTML = ''; 
-            eachPara.append(strikeThroughElement);
-        });
-      }
-      else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
-        _updateCompletedStatus(eachtodo.title, true);
-        const allPara = todoContainer.querySelectorAll("p");
-        allPara.forEach((eachPara) => {
-          const eachStrikePara = eachPara.querySelector("s");
-          let text = eachStrikePara.textContent;
-          eachPara.innerHTML = '';
-          eachPara.textContent = text;
-        });
-      }
-    })
+
+
+// this function adds functionality like drop down 
+// complete and delete 
+function _addFunctionality() {
+  // when todocontainer is clicked it drop downs 
+  const todoContainer = document.querySelectorAll('.todo-container');
+  todoContainer.forEach((eachtodoContainer) => {
+    dropDownFunctionality(eachtodoContainer); 
+  });
+
+  // when editBtn is clicked form is shown and the array is updated
+  const editBtn = document.querySelectorAll('.edit-btn');
+  editBtn.forEach((eachBtn) => {
+    edit(eachBtn);
+  })
+
+  // when completedBtn is clicked text are crossed out
+  const completedBtn = document.querySelectorAll('.completed-btn');
+  completedBtn.forEach((eachBtn) => {
+    _strikethrough(eachBtn);
+  });
+
+  // when deleteBtn is clicked the todo is deleted
+  const deleteBtn = document.querySelectorAll('.delete-btn');
+  deleteBtn.forEach((eachBtn) => {
+    _deleteTodo(eachBtn);
   });
 }
 
 
-// deletes a todo when user clicks on the deleteBtn
-// it asks user for confirmation if they say yes 
-// it proceeds to delete that particular obj from the array
-// and at last it renders the new array
-function _deleteTodo(eachBtn) {
-  let newTodosArray;
-  eachBtn.addEventListener('click', () => {
-    const confirmation = confirm("Are you sure you want to delete this todo?");
-    if (confirmation === true) {
-      const todoContainer = eachBtn.parentElement.parentElement.parentElement;
-      const todoContainerHeading = eachBtn.parentElement.parentElement;
-      const todoPara = todoContainerHeading.querySelector("p");
-      const todoTitle = todoPara.firstChild;
-      newTodosArray = todosArray.filter(eachtodo => {
-        if (eachtodo.title === todoTitle.textContent) {
-          return false;
-        }else {
-          return true;
-        }
-      });
-      todosArray = newTodosArray;
-      _saveTodoToLocalStorage();
-      renderTodos();
+
+// dropDownFunctionality
+// when this function is invoked a new class is added to todo
+// body container which makes it visible to the user
+export function dropDownFunctionality(eachtodoContainer) {
+  const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
+  const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
+  todoContainerHeading.addEventListener('click', (e) => {
+    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark" || e.target.classList[1] === "fa-pen-to-square") {
+      return; // skips if the the user clicks on any other button
     }
-    else {
-      return;
-    }
-  })
+
+    todoContainerBody.classList.toggle('show-todo-container-body');
+
+    const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
+    const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
+    dropDownBtn.classList.toggle('rotate');
+  });
 }
 
-let title;
 
+
+let title;
 // edit function 
-function _edit(eachBtn) {
+function edit(eachBtn) {
   eachBtn.addEventListener('click', () => {
     const titleInput = document.querySelector('#updated-title');
     const dueDateInput = document.querySelector('#updated-dueDate');
@@ -276,10 +281,13 @@ function _edit(eachBtn) {
   })
 }
 
+
+
 // event listener for cancel btn
 cancelUpdateTask.addEventListener('click', () => {
   updateModal.close();
 });
+
 
 
 updateTaskForm.addEventListener('submit', (e) => {
@@ -321,8 +329,9 @@ updateTaskForm.addEventListener('submit', (e) => {
     return;
   }
   
-  saveTodoToProject(headingContent, titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
+  updateTodoToProject( titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
 });
+
 
 
 function updateTodo(newTitle, newDueDate, newPriority, newDescription) {
@@ -339,44 +348,74 @@ function updateTodo(newTitle, newDueDate, newPriority, newDescription) {
 
 
 
+// strikethrough function which puts a line on the text 
+// whenever a user clicks on the complete function 
+// it also removes the line when user clicks on it again
+// here this function also calls updateTodo to update the 
+// completed property to true or false
+function _strikethrough(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+    todosArray.forEach(eachtodo => {
+      if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
+        _updateCompletedStatus(eachtodo.title, false);
+        const allPara = todoContainer.querySelectorAll('p');
+        allPara.forEach((eachPara) => {
+            const strikeThroughElement = document.createElement('s');
+            strikeThroughElement.textContent = eachPara.textContent;
+            /*eslint-disable */
+            eachPara.innerHTML = ''; 
+            eachPara.append(strikeThroughElement);
+        });
+      }
+      else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
+        _updateCompletedStatus(eachtodo.title, true);
+        const allPara = todoContainer.querySelectorAll("p");
+        allPara.forEach((eachPara) => {
+          const eachStrikePara = eachPara.querySelector("s");
+          let text = eachStrikePara.textContent;
+          eachPara.innerHTML = '';
+          eachPara.textContent = text;
+        });
+      }
+    })
+  });
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// deletes a todo when user clicks on the deleteBtn
+// it asks user for confirmation if they say yes 
+// it proceeds to delete that particular obj from the array
+// and at last it renders the new array
+function _deleteTodo(eachBtn) {
+  let newTodosArray;
+  eachBtn.addEventListener('click', () => {
+    const confirmation = confirm("Are you sure you want to delete this todo?");
+    if (confirmation === true) {
+      const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+      const todoContainerHeading = eachBtn.parentElement.parentElement;
+      const todoPara = todoContainerHeading.querySelector("p");
+      const todoTitle = todoPara.firstChild;
+      newTodosArray = todosArray.filter(eachtodo => {
+        if (eachtodo.title === todoTitle.textContent) {
+          return false;
+        }else {
+          return true;
+        }
+      });
+      todosArray = newTodosArray;
+      _saveTodoToLocalStorage();
+      renderTodos();
+    }
+    else {
+      return;
+    }
+  })
+}
 
 
 
@@ -393,59 +432,3 @@ function _updateCompletedStatus (title, completed) {
     }
   });
 };
-
-// saves the todoArray in the localStorage
-function _saveTodoToLocalStorage() {
-  localStorage.setItem('myTodos', JSON.stringify(todosArray));
-}
-
-// dropDownFunctionality
-// when this function is invoked a new class is added to todo
-// body container which makes it visible to the user
-export function dropDownFunctionality(eachtodoContainer) {
-  if (todosArray.length === 0) {
-    return;
-  }
-  
-  const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
-  const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
-  todoContainerHeading.addEventListener('click', (e) => {
-    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark" || e.target.classList[1] === "fa-pen-to-square") {
-      return; // skips if the the user clicks on any other button
-    }
-
-    todoContainerBody.classList.toggle('show-todo-container-body');
-
-    const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
-    const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
-    dropDownBtn.classList.toggle('rotate');
-  });
-}
-
-// this function adds functionality like drop down 
-// complete and delete 
-function _addFunctionality() {
-  // when todocontainer is clicked it drop downs 
-  const todoContainer = document.querySelectorAll('.todo-container');
-  todoContainer.forEach((eachtodoContainer) => {
-    dropDownFunctionality(eachtodoContainer); 
-  });
-
-  // when editBtn is clicked form is shown and the array is updated
-  const editBtn = document.querySelectorAll('.edit-btn');
-  editBtn.forEach((eachBtn) => {
-    _edit(eachBtn);
-  })
-
-  // when completedBtn is clicked text are crossed out
-  const completedBtn = document.querySelectorAll('.completed-btn');
-  completedBtn.forEach((eachBtn) => {
-    _strikethrough(eachBtn);
-  });
-
-  // when deleteBtn is clicked the todo is deleted
-  const deleteBtn = document.querySelectorAll('.delete-btn');
-  deleteBtn.forEach((eachBtn) => {
-    _deleteTodo(eachBtn);
-  });
-}

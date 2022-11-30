@@ -135,8 +135,8 @@ formProject.addEventListener('submit', (e) => {
   const emptyArray = [];
   const project = new ProjectName(projectName.value, emptyArray);
   saveProject(project);
-  renderSideBarProjects();
-  renderProjects();
+  renderSideBarProjects(); // renders all the projects on the side bar
+  renderProjects(); // renders the projects 
 });
 
 // when the user logs in the pade we render the todos

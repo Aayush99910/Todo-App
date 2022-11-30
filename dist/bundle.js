@@ -527,7 +527,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "renderUpcomingTodos": () => (/* binding */ renderUpcomingTodos),
 /* harmony export */   "saveTodo": () => (/* binding */ saveTodo)
 /* harmony export */ });
+/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./project.js */ "./src/project.js");
 /*eslint-disable */
+
 
 let todosArray; // initailising the todosarray
 
@@ -779,7 +781,7 @@ function _deleteTodo(eachBtn) {
 let title;
 
 // edit function 
-function _edit(eachBtn) {
+function edit(eachBtn) {
   eachBtn.addEventListener('click', () => {
     const titleInput = document.querySelector('#updated-title');
     const dueDateInput = document.querySelector('#updated-dueDate');
@@ -850,7 +852,7 @@ updateTaskForm.addEventListener('submit', (e) => {
     return;
   }
   
-  saveTodoToProject(headingContent, titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
+  (0,_project_js__WEBPACK_IMPORTED_MODULE_0__.updateTodoToProject)( titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
 });
 
 
@@ -932,10 +934,6 @@ function _saveTodoToLocalStorage() {
 // when this function is invoked a new class is added to todo
 // body container which makes it visible to the user
 function dropDownFunctionality(eachtodoContainer) {
-  if (todosArray.length === 0) {
-    return;
-  }
-  
   const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
   const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
   todoContainerHeading.addEventListener('click', (e) => {
@@ -963,7 +961,7 @@ function _addFunctionality() {
   // when editBtn is clicked form is shown and the array is updated
   const editBtn = document.querySelectorAll('.edit-btn');
   editBtn.forEach((eachBtn) => {
-    _edit(eachBtn);
+    edit(eachBtn);
   })
 
   // when completedBtn is clicked text are crossed out
@@ -993,7 +991,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "renderProjects": () => (/* binding */ renderProjects),
 /* harmony export */   "renderSideBarProjects": () => (/* binding */ renderSideBarProjects),
 /* harmony export */   "saveProject": () => (/* binding */ saveProject),
-/* harmony export */   "saveTodoToProject": () => (/* binding */ saveTodoToProject)
+/* harmony export */   "saveTodoToProject": () => (/* binding */ saveTodoToProject),
+/* harmony export */   "updateTodoToProject": () => (/* binding */ updateTodoToProject)
 /* harmony export */ });
 /* harmony import */ var _Todo_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Todo.js */ "./src/Todo.js");
 /* eslint-disable */
@@ -1014,6 +1013,9 @@ if (myProjectsFromLocalStorage) {
 // DOM elements
 const projectsContainer = document.querySelector('.projects-container');
 const body = document.querySelector('.main-body-todos')
+const updateTaskForm = document.querySelector('#update-task-form');
+const updateModal = document.querySelector('#update-modal');
+const cancelUpdateTask = document.querySelector('#cancel-update-task');
 
 // class which return object of project and array 
 class ProjectName {
@@ -1042,7 +1044,6 @@ function saveTodoToProject(headingContent, titleValue, dueDateValue, priorityVal
       project.array.push(todo);
       _saveProjectsToLocalStorage();
       _renderTodoOfParticularProject(project.name);
-      _addFunctionality();
     }
   });
 }
@@ -1075,6 +1076,7 @@ function _renderTodoOfParticularProject(titleOfProject) {
       });
     }
   })
+  _addFunctionality();
 }
 
 // renders the sidebarProjects
@@ -1134,6 +1136,100 @@ function renderProjects() {
   _addFunctionality();
 }
 
+let title;
+
+
+function updateTodoToProject( newTitle, newDueDate, newPriority, newDescription) {
+  let projectname;
+  myProjects.forEach((project) => {
+    project.array.forEach((eachtodo) => {
+      if (eachtodo.title === title) {
+        projectname = project.name;
+        eachtodo.title = newTitle;
+        eachtodo.dueDate = newDueDate;
+        eachtodo.priority = newPriority;
+        eachtodo.description = newDescription;
+        _saveProjectsToLocalStorage();
+      }
+    })
+  })
+  _renderTodoOfParticularProject(projectname);
+}
+
+
+
+function _edit(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const titleInput = document.querySelector('#updated-title');
+    const dueDateInput = document.querySelector('#updated-dueDate');
+    const priorityInput = document.querySelector('#updated-priority');
+    const descriptionInput = document.querySelector("#updated-description");
+
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+
+    myProjects.forEach((project) => {
+      project.array.forEach((eachtodo) => {
+        if (eachtodo.title === todoTitle.textContent) {
+          title = eachtodo.title;
+          titleInput.value = eachtodo.title;
+          dueDateInput.value = eachtodo.dueDate;
+          priorityInput.value = eachtodo.priority;
+          descriptionInput.value = eachtodo.description;
+        }
+      })
+    })
+
+    updateModal.showModal();
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // adds functionality which lets user to go in the 
 // project
 function _addFunctionality() {
@@ -1142,6 +1238,12 @@ function _addFunctionality() {
   todoContainer.forEach((eachtodoContainer) => {
     (0,_Todo_js__WEBPACK_IMPORTED_MODULE_0__.dropDownFunctionality)(eachtodoContainer); 
   });
+
+  // when editBtn is clicked form is shown and the array is updated
+  const editBtn = document.querySelectorAll('.edit-btn');
+  editBtn.forEach((eachBtn) => {
+    _edit(eachBtn);
+  })
 
   // when completedBtn is clicked text are crossed out
   const completedBtn = document.querySelectorAll('.completed-btn');

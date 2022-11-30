@@ -5,6 +5,11 @@ let myProjects; // initialising the array
 // getting array from the localStorage
 const myProjectsFromLocalStorage = JSON.parse(localStorage.getItem('myProjects'));
 
+// saves project to localStorage
+function _saveProjectsToLocalStorage() {
+  localStorage.setItem('myProjects', JSON.stringify(myProjects));
+}
+
 // if there is array stored in the localStorage
 // use it otherwise an empty array is assigned
 if (myProjectsFromLocalStorage) {
@@ -13,9 +18,16 @@ if (myProjectsFromLocalStorage) {
   myProjects = [];
 }
 
+
+
 // DOM elements
 const projectsContainer = document.querySelector('.projects-container');
 const body = document.querySelector('.main-body-todos')
+const updateTaskForm = document.querySelector('#update-task-form');
+const updateModal = document.querySelector('#update-modal');
+const cancelUpdateTask = document.querySelector('#cancel-update-task');
+
+
 
 // class which return object of project and array 
 export default class ProjectName {
@@ -25,16 +37,15 @@ export default class ProjectName {
   }
 }
 
-// saves project to localStorage
-function _saveProjectsToLocalStorage() {
-  localStorage.setItem('myProjects', JSON.stringify(myProjects));
-}
+
 
 // saves project to the array and saves project to localStorage
 export function saveProject(project) {
   myProjects.push(project);
   _saveProjectsToLocalStorage();
 }
+
+
 
 // saves eachtodo in the array of each project
 export function saveTodoToProject(headingContent, titleValue, dueDateValue, priorityValue, descriptionValue) {
@@ -44,10 +55,11 @@ export function saveTodoToProject(headingContent, titleValue, dueDateValue, prio
       project.array.push(todo);
       _saveProjectsToLocalStorage();
       _renderTodoOfParticularProject(project.name);
-      _addFunctionality();
     }
   });
 }
+
+
 
 // renders the todos of a particular project
 // it takes in the project title
@@ -77,7 +89,10 @@ function _renderTodoOfParticularProject(titleOfProject) {
       });
     }
   })
+  _addFunctionality();
 }
+
+
 
 // renders the sidebarProjects
 export function renderSideBarProjects() {
@@ -93,6 +108,8 @@ export function renderSideBarProjects() {
     projectsContainer.append(div);
   })
 }
+
+
 
 // renders project in the main body
 export function renderProjects() {
@@ -136,6 +153,8 @@ export function renderProjects() {
   _addFunctionality();
 }
 
+
+
 // adds functionality which lets user to go in the 
 // project
 function _addFunctionality() {
@@ -144,6 +163,12 @@ function _addFunctionality() {
   todoContainer.forEach((eachtodoContainer) => {
     dropDownFunctionality(eachtodoContainer); 
   });
+
+  // when editBtn is clicked form is shown and the array is updated
+  const editBtn = document.querySelectorAll('.edit-btn');
+  editBtn.forEach((eachBtn) => {
+    _edit(eachBtn);
+  })
 
   // when completedBtn is clicked text are crossed out
   const completedBtn = document.querySelectorAll('.completed-btn');
@@ -174,6 +199,141 @@ function _addFunctionality() {
   }); 
 }
 
+
+
+let title;
+function _edit(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const titleInput = document.querySelector('#updated-title');
+    const dueDateInput = document.querySelector('#updated-dueDate');
+    const priorityInput = document.querySelector('#updated-priority');
+    const descriptionInput = document.querySelector("#updated-description");
+
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+
+    myProjects.forEach((project) => {
+      project.array.forEach((eachtodo) => {
+        if (eachtodo.title === todoTitle.textContent) {
+          title = eachtodo.title;
+          titleInput.value = eachtodo.title;
+          dueDateInput.value = eachtodo.dueDate;
+          priorityInput.value = eachtodo.priority;
+          descriptionInput.value = eachtodo.description;
+        }
+      })
+    })
+
+    updateModal.showModal();
+  })
+}
+
+
+
+export function updateTodoToProject( newTitle, newDueDate, newPriority, newDescription) {
+  let projectname;
+  myProjects.forEach((project) => {
+    project.array.forEach((eachtodo) => {
+      if (eachtodo.title === title) {
+        projectname = project.name;
+        eachtodo.title = newTitle;
+        eachtodo.dueDate = newDueDate;
+        eachtodo.priority = newPriority;
+        eachtodo.description = newDescription;
+        _saveProjectsToLocalStorage();
+      }
+    })
+  })
+  _renderTodoOfParticularProject(projectname);
+}
+
+
+
+// strikethrough function which puts a line on the text 
+// whenever a user clicks on the complete function 
+// it also removes the line when user clicks on it again
+// here this function also calls updateTodo to update the 
+// completed property to true or false
+function _strikethrough(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+    const pageHeading = document.querySelector("#heading");
+    myProjects.forEach(project => {
+      if (project.name === pageHeading.textContent) {
+        project.array.forEach(eachtodo => {
+          if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
+            _updateCompletedStatus(project.array, eachtodo.title, false);
+            const allPara = todoContainer.querySelectorAll('p');
+            allPara.forEach((eachPara) => {
+                const strikeThroughElement = document.createElement('s');
+                strikeThroughElement.textContent = eachPara.textContent;
+                /*eslint-disable */
+                eachPara.innerHTML = ''; 
+                eachPara.append(strikeThroughElement);
+            });
+          }
+          else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
+            _updateCompletedStatus(project.array, eachtodo.title, true);
+            const allPara = todoContainer.querySelectorAll("p");
+            allPara.forEach((eachPara) => {
+              const eachStrikePara = eachPara.querySelector("s");
+              let text = eachStrikePara.textContent;
+              eachPara.innerHTML = '';
+              eachPara.textContent = text;
+            });
+          }
+        })
+      }
+    })
+  });
+}
+
+
+
+// deletes a todo when user clicks on the deleteBtn
+// it asks user for confirmation if they say yes 
+// it proceeds to delete that particular abj from the array
+// and that array is nested inside eachproject obj inside 
+// the project array.
+// and at last it renders the new array
+function _deleteTodo(eachBtn) {
+  let mynewProjectTodosArray;
+  eachBtn.addEventListener('click', () => {
+    const confirmation = confirm("Are you sure you want to delete this todo?");
+    if (confirmation === true) {
+      const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+      const todoContainerHeading = eachBtn.parentElement.parentElement;
+      const todoPara = todoContainerHeading.querySelector("p");
+      const todoTitle = todoPara.firstChild;
+      const heading = document.querySelector("#heading");
+      myProjects.forEach(project => {
+        if (project.name === heading.textContent) {
+          mynewProjectTodosArray = project.array.filter(eachtodo => {
+            if (eachtodo.title === todoTitle.textContent) {
+              return false;
+            }else {
+              return true;
+            }
+          });
+          project.array = mynewProjectTodosArray;
+          _saveProjectsToLocalStorage();
+          _renderTodoOfParticularProject(project.name);
+        }
+      })
+    }
+    else {
+      return;
+    }
+  })
+}
+
+
+
 // deletes a project from the projects array
 // and saves it to the localStorage
 function _deleteProject(eachBtn) {
@@ -202,6 +362,8 @@ function _deleteProject(eachBtn) {
     }
   })
 }
+
+
 
 // renders new Page for a project
 function _newPage(eachprojectContainer) {
@@ -242,89 +404,10 @@ function _newPage(eachprojectContainer) {
 }
 
 
-// strikethrough function which puts a line on the text 
-// whenever a user clicks on the complete function 
-// it also removes the line when user clicks on it again
-// here this function also calls updateTodo to update the 
-// completed property to true or false
-function _strikethrough(eachBtn) {
-  eachBtn.addEventListener('click', () => {
-    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
-    const todoContainerHeading = eachBtn.parentElement.parentElement;
-    const todoPara = todoContainerHeading.querySelector("p");
-    const todoTitle = todoPara.firstChild;
-    const pageHeading = document.querySelector("#heading");
-    myProjects.forEach(project => {
-      if (project.name === pageHeading.textContent) {
-        project.array.forEach(eachtodo => {
-          if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
-            _updateTodo(project.array, eachtodo.title, false);
-            const allPara = todoContainer.querySelectorAll('p');
-            allPara.forEach((eachPara) => {
-                const strikeThroughElement = document.createElement('s');
-                strikeThroughElement.textContent = eachPara.textContent;
-                /*eslint-disable */
-                eachPara.innerHTML = ''; 
-                eachPara.append(strikeThroughElement);
-            });
-          }
-          else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
-            _updateTodo(project.array, eachtodo.title, true);
-            const allPara = todoContainer.querySelectorAll("p");
-            allPara.forEach((eachPara) => {
-              const eachStrikePara = eachPara.querySelector("s");
-              let text = eachStrikePara.textContent;
-              eachPara.innerHTML = '';
-              eachPara.textContent = text;
-            });
-          }
-        })
-      }
-    })
-  });
-}
-
-
-// deletes a todo when user clicks on the deleteBtn
-// it asks user for confirmation if they say yes 
-// it proceeds to delete that particular abj from the array
-// and that array is nested inside eachproject obj inside 
-// the project array.
-// and at last it renders the new array
-function _deleteTodo(eachBtn) {
-  let mynewProjectTodosArray;
-  eachBtn.addEventListener('click', () => {
-    const confirmation = confirm("Are you sure you want to delete this todo?");
-    if (confirmation === true) {
-      const todoContainer = eachBtn.parentElement.parentElement.parentElement;
-      const todoContainerHeading = eachBtn.parentElement.parentElement;
-      const todoPara = todoContainerHeading.querySelector("p");
-      const todoTitle = todoPara.firstChild;
-      const heading = document.querySelector("#heading");
-      myProjects.forEach(project => {
-        if (project.name === heading.textContent) {
-          mynewProjectTodosArray = project.array.filter(eachtodo => {
-            if (eachtodo.title === todoTitle.textContent) {
-              return false;
-            }else {
-              return true;
-            }
-          });
-          project.array = mynewProjectTodosArray;
-          _saveProjectsToLocalStorage();
-          _renderTodoOfParticularProject(project.name);
-        }
-      })
-    }
-    else {
-      return;
-    }
-  })
-}
 
 // updatesTodo to either completed true or conpleted false
 // and calls saveProjectsToLocalStorage to update the new array
-function _updateTodo (array, title, completed) {
+function _updateCompletedStatus (array, title, completed) {
   array.forEach((eachtodo) => {
     if (eachtodo.title === title && completed === false) {
       eachtodo.completed = true;

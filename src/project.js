@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { createTodo, _render } from './Todo.js';
+import { createTodo, _render, dropDownFunctionality } from './Todo.js';
 let myProjects; // initialising the array 
 
 // getting array from the localStorage
@@ -142,7 +142,7 @@ function _addFunctionality() {
   // when todocontainer is clicked it drop downs 
   const todoContainer = document.querySelectorAll('.todo-container');
   todoContainer.forEach((eachtodoContainer) => {
-    _dropDownFunctionality(eachtodoContainer); 
+    dropDownFunctionality(eachtodoContainer); 
   });
 
   // when completedBtn is clicked text are crossed out
@@ -238,30 +238,6 @@ function _newPage(eachprojectContainer) {
         _addFunctionality();
       }
     })
-  });
-}
-
-
-// dropDownFunctionality
-// when this function is invoked a new class is added to todo
-// body container which makes it visible to the user
-function _dropDownFunctionality(eachtodoContainer) {
-  if (myProjects.length === 0) {
-    return;
-  }
-  
-  const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
-  const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
-  todoContainerHeading.addEventListener('click', (e) => {
-    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark") {
-      return; // skips if the the user clicks on any other button
-    }
-
-    todoContainerBody.classList.toggle('show-todo-container-body');
-
-    const buttonContainer = todoContainerHeading.querySelector('.completed-delete-dropdown-container');
-    const dropDownBtn = buttonContainer.querySelector('.dropdown-btn');
-    dropDownBtn.classList.toggle('rotate');
   });
 }
 

@@ -16,6 +16,9 @@ if (todosArrayFromLocalStorage) {
 
 // DOM element
 const body = document.querySelector('.main-body-todos');
+const updateTaskForm = document.querySelector('#update-task-form');
+const updateModal = document.querySelector('#update-modal');
+const cancelUpdateTask = document.querySelector('#cancel-update-task');
 
 // factory function which makes todo
 export const createTodo = (title, dueDate, priority, description, completed) => ({
@@ -70,6 +73,10 @@ export function _render(eachtodo) {
   const buttonDiv = document.createElement('div');
   buttonDiv.classList.add('completed-delete-dropdown-container');
 
+  const editBtn = document.createElement('button');
+  editBtn.classList.add('edit-btn');
+  editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i>';
+
   const completedBtn = document.createElement('button');
   completedBtn.classList.add('completed-btn');
   completedBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
@@ -82,7 +89,7 @@ export function _render(eachtodo) {
   dropDown.classList.add('dropdown-btn');
   dropDown.innerHTML = '<i class="fa-solid fa-angle-down"></i>';
 
-  buttonDiv.append(completedBtn, deleteBtn, dropDown);
+  buttonDiv.append(editBtn, completedBtn, deleteBtn, dropDown);
 
   const todoContainerBody = document.createElement('div');
   todoContainerBody.classList.add('todo-container-body');
@@ -185,7 +192,7 @@ function _strikethrough(eachBtn) {
     const todoTitle = todoPara.firstChild;
     todosArray.forEach(eachtodo => {
       if (eachtodo.title == todoTitle.textContent && eachtodo.completed === false) {
-        _updateTodo(eachtodo.title, false);
+        _updateCompletedStatus(eachtodo.title, false);
         const allPara = todoContainer.querySelectorAll('p');
         allPara.forEach((eachPara) => {
             const strikeThroughElement = document.createElement('s');
@@ -196,7 +203,7 @@ function _strikethrough(eachBtn) {
         });
       }
       else if (eachtodo.title === todoTitle.textContent && eachtodo.completed === true) {
-        _updateTodo(eachtodo.title, true);
+        _updateCompletedStatus(eachtodo.title, true);
         const allPara = todoContainer.querySelectorAll("p");
         allPara.forEach((eachPara) => {
           const eachStrikePara = eachPara.querySelector("s");
@@ -240,9 +247,142 @@ function _deleteTodo(eachBtn) {
   })
 }
 
+let title;
+
+// edit function 
+function _edit(eachBtn) {
+  eachBtn.addEventListener('click', () => {
+    const titleInput = document.querySelector('#updated-title');
+    const dueDateInput = document.querySelector('#updated-dueDate');
+    const priorityInput = document.querySelector('#updated-priority');
+    const descriptionInput = document.querySelector("#updated-description");
+
+    const todoContainer = eachBtn.parentElement.parentElement.parentElement;
+    const todoContainerHeading = eachBtn.parentElement.parentElement;
+    const todoPara = todoContainerHeading.querySelector("p");
+    const todoTitle = todoPara.firstChild;
+
+    todosArray.forEach((eachtodo) => {
+      if (eachtodo.title === todoTitle.textContent) {
+        title = eachtodo.title;
+        titleInput.value = eachtodo.title;
+        dueDateInput.value = eachtodo.dueDate;
+        priorityInput.value = eachtodo.priority;
+        descriptionInput.value = eachtodo.description;
+      }
+    })
+
+    updateModal.showModal();
+  })
+}
+
+// event listener for cancel btn
+cancelUpdateTask.addEventListener('click', () => {
+  updateModal.close();
+});
+
+
+updateTaskForm.addEventListener('submit', (e) => {
+  e.preventDefault(); // preventing the default 
+  // getting all the input values from the form
+  const heading = document.querySelector('#heading');
+  const titleInput = document.querySelector('#updated-title');
+  const dueDateInput = document.querySelector('#updated-dueDate');
+  const priorityInput = document.querySelector('#updated-priority');
+  const descriptionInput = document.querySelector("#updated-description");
+
+  // if empty form is submitted user is alerted about it
+  if (titleInput.value === '' || dueDateInput.value === '' || priorityInput.value === '' || descriptionInput.value === '') {
+    /*eslint-disable */
+    alert('Please fill the form.'); 
+    return; // skips the whole other code after this
+  }
+
+  // when submitted closes the modal and creates the todo by
+  // calling the createTodo factory function which is
+  // imported from Todo.js
+  // then calls saveTodo function which saves the todo
+  // in the localStorage lastly it renders them
+  updateModal.close();
+  const headingContent = heading.textContent.toLowerCase();
+  if (headingContent === "inbox" 
+    || headingContent === "today" 
+    || headingContent === "upcoming tasks") {
+      updateTodo(titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
+  }
+  if (headingContent === "inbox") {
+    renderTodos();
+    return;
+  } else if (headingContent === "today") {
+    renderTodayTodos();
+    return;
+  } else if (headingContent === "upcoming tasks") {
+    renderUpcomingTodos();
+    return;
+  }
+  
+  saveTodoToProject(headingContent, titleInput.value, dueDateInput.value, priorityInput.value, descriptionInput.value);
+});
+
+
+function updateTodo(newTitle, newDueDate, newPriority, newDescription) {
+  todosArray.forEach(function (eachtodo) {
+    if (eachtodo.title === title) {
+      eachtodo.title = newTitle;
+      eachtodo.dueDate = newDueDate;
+      eachtodo.priority = newPriority;
+      eachtodo.description = newDescription;
+      _saveTodoToLocalStorage();
+    }
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // updatesTodo to either completed true or conpleted false
 // and calls saveTodoToLocalStorage to update the new array
-function _updateTodo (title, completed) {
+function _updateCompletedStatus (title, completed) {
   todosArray.forEach((eachtodo) => {
     if (eachtodo.title === title && completed === false) {
       eachtodo.completed = true;
@@ -262,7 +402,7 @@ function _saveTodoToLocalStorage() {
 // dropDownFunctionality
 // when this function is invoked a new class is added to todo
 // body container which makes it visible to the user
-function _dropDownFunctionality(eachtodoContainer) {
+export function dropDownFunctionality(eachtodoContainer) {
   if (todosArray.length === 0) {
     return;
   }
@@ -270,7 +410,7 @@ function _dropDownFunctionality(eachtodoContainer) {
   const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
   const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
   todoContainerHeading.addEventListener('click', (e) => {
-    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark") {
+    if (e.target.classList[1] === 'fa-check' || e.target.classList[1] === "fa-xmark" || e.target.classList[1] === "fa-pen-to-square") {
       return; // skips if the the user clicks on any other button
     }
 
@@ -288,8 +428,14 @@ function _addFunctionality() {
   // when todocontainer is clicked it drop downs 
   const todoContainer = document.querySelectorAll('.todo-container');
   todoContainer.forEach((eachtodoContainer) => {
-    _dropDownFunctionality(eachtodoContainer); 
+    dropDownFunctionality(eachtodoContainer); 
   });
+
+  // when editBtn is clicked form is shown and the array is updated
+  const editBtn = document.querySelectorAll('.edit-btn');
+  editBtn.forEach((eachBtn) => {
+    _edit(eachBtn);
+  })
 
   // when completedBtn is clicked text are crossed out
   const completedBtn = document.querySelectorAll('.completed-btn');

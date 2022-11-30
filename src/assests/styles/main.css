@@ -212,6 +212,7 @@ main {
 }
 
 #modal,
+#update-modal,
 #project-modal {
     margin: auto;
     padding: 1em;
@@ -228,12 +229,14 @@ main {
 }
 
 #modal::backdrop,
-#project-modal::backdrop {
+#project-modal::backdrop,
+#update-modal::backdrop {
     background: rgb(0 0 0);
     opacity: 0.3;
 }
 
 #add-task-form,
+#update-task-form,
 #project-form {
     display: flex;
     flex-direction: column;
@@ -241,7 +244,8 @@ main {
 }
 
 #add-task-form > p,
-#project-form > p {
+#project-form > p,
+#update-task-form > p {
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -311,12 +315,13 @@ input, select, textarea {
 }
 
 .completed-delete-dropdown-container {
-    width: 8%;
+    width: 12%;
     min-width: 50px;
     display: flex;
     justify-content: space-between;
 }
 
+.edit-btn,
 .completed-btn,
 .dropdown-btn,
 .delete-btn,
@@ -326,6 +331,7 @@ input, select, textarea {
     background: none;
 }
 
+.edit-btn:hover,
 .completed-btn:hover,
 .dropdown-btn:hover,
 .delete-btn:hover,

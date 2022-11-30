@@ -81,6 +81,40 @@
                     </div>
                 </form>
             </dialog>
+            <dialog id="update-modal">
+                <form method="dialog" id="update-task-form">
+                    <p>Update your todo</p>
+
+                    <div class="input-label-container ">
+                        <label for="title">Title</label>
+                        <input type="text" id="updated-title" placeholder="Title of your todos" required>
+                    </div>
+
+                    <div class="input-label-container ">
+                        <label for="dueDate">Duedate</label>
+                        <input type="date" id="updated-dueDate" required>
+                    </div>
+                    
+                    <div class="input-label-container ">
+                        <label for="priority">Priority</label>
+                        <select name="priority" id="updated-priority" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                    <div class="input-label-container">
+                        <label for="description">Description</label>
+                        <textarea required id="updated-description" placeholder="Some short description"></textarea>
+                    </div>
+                    
+                    <div class="button-container">
+                        <button type="submit" id="updated-task" class="add-btn">Update</button>
+                        <button type="button" id="cancel-update-task" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </dialog>
             <div class="main-body-todos">
                 
             </div>

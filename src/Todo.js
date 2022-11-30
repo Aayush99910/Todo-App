@@ -236,6 +236,10 @@ function _addFunctionality() {
 // when this function is invoked a new class is added to todo
 // body container which makes it visible to the user
 export function dropDownFunctionality(eachtodoContainer) {
+  if (todosArray.length === 0) {
+    return;
+  }
+  
   const todoContainerBody = eachtodoContainer.querySelector('.todo-container-body');
   const todoContainerHeading = eachtodoContainer.querySelector('.todo-container-heading');
   todoContainerHeading.addEventListener('click', (e) => {
@@ -278,6 +282,13 @@ function edit(eachBtn) {
     })
 
     updateModal.showModal();
+    if (updateModal.classList.contains('fade-in2')) {
+      updateModal.classList.remove('fade-in2');
+      updateModal.offsetWidth;
+      updateModal.classList.add('fade-in2');
+    } else {
+      updateModal.classList.add('fade-in2');
+    }
   })
 }
 

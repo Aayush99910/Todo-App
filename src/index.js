@@ -36,6 +36,13 @@ const cancelProjectBtn = document.querySelector("#cancel-project-btn");
 // event listener for add task btn
 addTaskBtn.addEventListener('click', () => {
   modal.showModal();
+  if (modal.classList.contains('fade-in2')) {
+    modal.classList.remove('fade-in2');
+    modal.offsetWidth;
+    modal.classList.add('fade-in2');
+  } else {
+    modal.classList.add('fade-in2');
+  }
 });
 
 // event listener for cancel btn
@@ -110,6 +117,14 @@ projects.addEventListener("click", () => {
 
 addProjectBtn.addEventListener("click", () => {
   projectModal.showModal();
+  if (projectModal.classList.contains('fade-in2')) {
+    projectModal.classList.remove('fade-in2');
+    projectModal.offsetWidth;
+    projectModal.classList.add('fade-in2');
+  } else {
+    projectModal.classList.add('fade-in2');
+  }
+  
 });
 
 // event listener for cancel btn

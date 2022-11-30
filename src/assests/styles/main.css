@@ -404,3 +404,30 @@ footer p{
     color: white;
     font-size: 18px;
 }
+
+.fade-in {
+    animation: fadeIn 0.15s;
+}
+  
+.fade-in2 {
+    animation: fadeIn2 0.3s;
+}
+  
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+  
+@keyframes fadeIn2 {
+    0% {
+      opacity: 0.1;
+      transform: scale(0.9, 0.9);
+    }
+    100% {
+      opacity: 1;
+    }
+}

@@ -700,7 +700,10 @@ function _renderTodos(choice) {
 
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth() + 1;
-  const currentday = new Date().getDate();
+  let currentday = new Date().getDate();
+  if (currentday < 10) {
+    currentday = "0" + currentday;
+  } 
 
   if (choice == 'all') {
     bodyHeading.textContent = 'Inbox';
